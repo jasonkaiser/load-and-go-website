@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+
+
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('./assets/fonts/SequelSans.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sequel Sans Bold';
+  src: url('./assets/fonts/SequelSans-Bold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sequel Sans Heavy';
+  src: url('./assets/fonts/SequelSans-Heavy.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+.sequelFont {
+  font-family: 'Sequel Sans', Helvetica, Arial, sans-serif;
+
+}
+
+.sequelFont-Bold {
+  font-family: 'Sequel Sans Bold', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.sequelFont-Heavy {
+  font-family: 'Sequel Sans Heavy', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+}
+
+
+.helveticaRegular {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400; 
+}
+
+.helveticaBold {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-stretch: expanded;
+  
+}
+
+.robotoRegular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.robotoMedium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.robotoBold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
