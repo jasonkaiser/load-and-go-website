@@ -50,6 +50,24 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.group:hover .breathe-border {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.692);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(243, 219, 0, 0.199);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 a {
   font-weight: 500;
   color: #000000;

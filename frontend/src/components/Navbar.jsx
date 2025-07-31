@@ -17,11 +17,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-// Navigation links array to be used in both desktop and mobile menus
+
 const navigationLinks = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "About Us" },
-  { href: "#", label: "Contact" },
+  { href: "#main", label: "Home" },
+  { href: "#about", label: "About Us" },
+  { href: "#contact", label: "Contact" },
   {
     label: "Services",
     submenu: true,
@@ -64,17 +64,17 @@ const navigationLinks = [
 
 export default function Component() {
   return (
-  <header className="fixed top-0 left-0 right-0 z-50 border-b px-4 md:px-6 w-[80%] justify-self-center shadow-xl rounded-2xl backdrop-blur-md bg-white/30 mt-5">
+  <header className="fixed top-0 left-0 right-0 z-50  px-4 md:px-6 w-[80%] justify-self-center shadow-xl rounded-2xl backdrop-blur-md bg-white/30 mt-5">
       <div className="flex h-16 items-center justify-between gap-10">
-        {/* Left side */}
+  
         <div className="flex items-center gap-2">
            <img src={logo} width={76} height={76}></img>
            <div className="w-[0.2px]  h-10 bg-gray-300 max-md:hidden ml-4"></div>
-          {/* Mobile menu trigger */}
+        
           <Popover>
             <PopoverTrigger asChild>
               <Button
-                className="group size-10 md:hidden"
+                className="group size-10 md:hidden !outline-none"
                 variant="ghost"
                 size="icon"
               >
@@ -133,11 +133,9 @@ export default function Component() {
                           {link.label}
                         </NavigationMenuLink>
                       )}
-                      {/* Add separator between different types of items */}
+              
                       {index < navigationLinks.length - 1 &&
-                        // Show separator if:
-                        // 1. One is submenu and one is simple link OR
-                        // 2. Both are submenus but with different types
+               
                         ((!link.submenu &&
                           navigationLinks[index + 1].submenu) ||
                           (link.submenu &&
@@ -157,19 +155,19 @@ export default function Component() {
               </NavigationMenu>
             </PopoverContent>
           </Popover>
-          {/* Main nav */}
+   
           <div className="flex items-center gap-6">
             <a href="#" className="text-primary hover:text-primary/90">
                   
             </a>
-            {/* Navigation menu */}
+           
             <NavigationMenu viewport={false} className="max-md:hidden">
               <NavigationMenuList className="gap-2">
                 {navigationLinks.map((link, index) => (
                   <NavigationMenuItem key={index}>
                     {link.submenu ? (
                       <>
-                        <NavigationMenuTrigger className="text-muted-foreground hover:text-primary bg-transparent px-2 py-1.5 font-medium *:[svg]:-me-0.5 *:[svg]:size-3.5 !outline-none !ring-0 !focus:outline-none !focus:ring-0 !focus:border-transparent">
+                        <NavigationMenuTrigger className="text-primray hover:text-primary !bg-transparent px-2 py-1.5 font-medium *:[svg]:-me-0.5 *:[svg]:size-3.5 !outline-none !ring-0 !focus:outline-none !focus:ring-0 !focus:border-transparent">
                           {link.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="data-[motion=from-end]:slide-in-from-right-16! data-[motion=from-start]:slide-in-from-left-16! data-[motion=to-end]:slide-out-to-right-16! data-[motion=to-start]:slide-out-to-left-16! z-50 p-1">
@@ -186,7 +184,7 @@ export default function Component() {
                                   href={item.href}
                                   className="py-1.5"
                                 >
-                                  {/* Display icon if present */}
+                        
                                   {link.type === "icon" && "icon" in item && (
                                     <div className="flex items-center gap-2">
                                       {item.icon === "BookOpenIcon" && (
@@ -214,7 +212,7 @@ export default function Component() {
                                     </div>
                                   )}
 
-                                  {/* Display label with description if present */}
+                        
                                   {link.type === "description" &&
                                   "description" in item ? (
                                     <div className="space-y-1">
@@ -226,7 +224,7 @@ export default function Component() {
                                       </p>
                                     </div>
                                   ) : (
-                                    // Display simple label if not icon or description type
+                               
                                     !link.type ||
                                     (link.type !== "icon" &&
                                       link.type !== "description" && (
@@ -253,10 +251,10 @@ export default function Component() {
             </NavigationMenu>
           </div>
         </div>
-        {/* Right side */}
+
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="text-md hover:bg-white hover:border-2 hover:border-primary transition">
-            <a href="#" className="text-red-500">Start now</a>
+            <a href="#services" className="text-red-500">Start now</a>
           </Button>
         </div>
       </div>
