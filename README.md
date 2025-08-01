@@ -1,6 +1,6 @@
 # 🚚 Load & Go
 
-A sleek, responsive web application built with **React**, **Tailwind CSS**, and **Framer Motion**. Load & Go simplifies the process of managing and visualizing delivery logistics with intuitive UI, smooth animations, and modular design.
+A sleek, responsive web application built with **React**, **Tailwind CSS**, and **Framer Motion**. Load & Go is a german business that provides Transport Services.
 
 ---
 
@@ -25,18 +25,11 @@ A sleek, responsive web application built with **React**, **Tailwind CSS**, and 
 
 ---
 
-## 📸 Screenshots
-
-> *(Optional section – include screenshots or GIFs of your UI in action)*
-
----
-
 ## 🔧 Getting Started Locally
 
 To run this project on your local machine:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/load-and-go.git
-cd load-and-go
+git clone https://github.com/jasonkaiser/load-and-go-website.git
 npm install
 npm run dev
