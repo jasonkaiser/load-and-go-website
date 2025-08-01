@@ -8,6 +8,7 @@ import About from './components/About';
 import Special from './components/Special';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Special/>
       <Services/>
       <Contact/>
+      <Footer/>
 
     </>
   )

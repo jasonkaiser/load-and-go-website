@@ -10,7 +10,7 @@ const Main = () => {
 
         <section id='main' className="flex items-center justify-center h-screen flex-col"> 
                         
-                        <WavyRoad />
+                        <WavyRoad/>
                         <div>                    
                             <TextReveal
                                 className="text-8xl font-bold sequelFont max-md:text-6xl"

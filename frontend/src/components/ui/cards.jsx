@@ -140,7 +140,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Small & Large Moves",
       category: "Transport",
-      src: "image1.jpg",
+      src: "aimage1.jpg",
       content:
         "Efficient moving services for homes, offices, and everything in between.",
       icon: IconTruckLoading,
@@ -148,21 +148,21 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Express Moves",
       category: "Fast Delivery",
-      src: "image2.jpg",
+      src: "aimage2.jpg",
       content: "Need to move in a hurry? Our express option is built for speed.",
       icon: IconRocket,
     },
     {
       title: "Packing Services",
       category: "Protection",
-      src: "image3.jpg",
+      src: "aimage3.jpg",
       content: "Professional packing to ensure your items are safe and secure.",
       icon: IconBoxSeam,
     },
     {
       title: "Furniture Assembly & Disassembly",
       category: "Convenience",
-      src: "image4.jpg",
+      src: "aimage4.jpg",
       content:
         "We take care of the heavy lifting — literally and structurally.",
       icon: IconTool,
@@ -170,14 +170,14 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Furniture Disposal",
       category: "Waste Removal",
-      src: "image5.jpg",
+      src: "aimage5.jpg",
       content: "Out with the old. We dispose of unwanted furniture responsibly.",
       icon: IconTrashX,
     },
     {
       title: "Personal Contact",
       category: "Support",
-      src: "image6.jpg",
+      src: "aimage6.jpg",
       content: "Talk to a real person, anytime you need assistance.",
       icon: IconUser,
     },

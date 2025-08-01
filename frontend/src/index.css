@@ -67,6 +67,13 @@ html {
   scroll-behavior: smooth;
 }
 
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #000000 inset !important;
+  -webkit-text-fill-color: #e5e7eb !important;
+  
+}
+
 
 a {
   font-weight: 500;
