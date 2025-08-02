@@ -23,9 +23,9 @@ const Footer = () => {
   return (
   <footer
     ref={ref}
-    className="bg-gray-100 text-gray-300 py-8 w-screen overflow-hidden mt-30 mb-[-30px] rounded-t-4xl place-self-center"
+    className="bg-gray-100 text-gray-300 py-8 w-full overflow-hidden mt-30 mb-[-30px] rounded-t-4xl place-self-center"
   >
-      <div className="container mx-auto px-6 flex flex-col justify-between items-center gap-6 max-w-screen">
+      <div className="container mx-auto px-6 flex flex-col justify-between items-center gap-6 max-w-screen-md">
         {/* Logo */}
         <motion.img
           src={logo}
