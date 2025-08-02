@@ -64,7 +64,11 @@
 }
 
 html {
+
   scroll-behavior: smooth;
+  overflow-x: scroll !important;
+
+
 }
 
 
@@ -96,11 +100,6 @@ body {
   overflow-x: hidden;
 
 }
-
-* {
-  outline: 1px solid red !important;
-}
-
 
 
 button {
