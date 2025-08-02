@@ -8,7 +8,7 @@ const Main = () => {
 
     return (
 
-        <section id='main' className="flex items-center justify-center h-screen flex-col"> 
+        <section id='home' className="flex items-center justify-center h-screen flex-col"> 
                         
                         <WavyRoad/>
                         <div>                    

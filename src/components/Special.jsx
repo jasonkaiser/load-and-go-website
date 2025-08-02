@@ -45,7 +45,7 @@ const items = [
 ];
 
 export default function Component() {
-  const [openItem, setOpenItem] = useState("3");
+  const [openItem, setOpenItem] = useState(null);
 
   return (
     <div className="space-y-4">

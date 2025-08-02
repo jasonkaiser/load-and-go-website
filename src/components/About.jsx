@@ -11,11 +11,11 @@ import { useRef } from "react"
 
 const About = () => {
 
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: true })
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
-    const ref2 = useRef(null)
-    const isInView2 = useInView(ref, { once: true })
+    const ref2 = useRef(null);
+    const isInView2 = useInView(ref2, { once: true, threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
     return (
 
