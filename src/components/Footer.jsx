@@ -39,7 +39,7 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <motion.nav
-          className="flex flex-wrap justify-center gap-20 !text-white sequelFont-Bold max-md:flex-col max-md:gap-5 mb-10"
+          className="flex flex-wrap justify-center gap-10 max-sm:gap-5 !text-white sequelFont-Bold max-md:flex-col mb-10"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={{
@@ -63,11 +63,12 @@ const Footer = () => {
           ))}
         </motion.nav>
 
-        <hr className="w-[95vw] border-gray-500" />
+        <hr className="w-full max-w-screen border-gray-500" />
+
       </div>
 
       <motion.div
-        className="flex flex-col md:flex-row justify-between items-center mx-10 px-6 py-6 max-md:gap-10 text-gray-300"
+        className="w-full px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center max-md:gap-10 text-gray-300"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={{
