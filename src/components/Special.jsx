@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PlusIcon } from "lucide-react";
 import SpeedIcon from "@mui/icons-material/Speed";
 import EuroIcon from "@mui/icons-material/Euro";
@@ -56,68 +56,83 @@ export default function Component() {
         value={openItem}
         onValueChange={(value) => setOpenItem(value)}
       >
-        {items.map((item, index) => {
+        {items.map((item) => {
           const IconComponent = item.icon;
           const isOpen = openItem === item.id;
 
-          const ref = useRef(null);
-          const isInView = useInView(ref, { once: true });
+          const contentRef = useRef(null);
+          const [height, setHeight] = useState(0);
+
+          useEffect(() => {
+            if (contentRef.current) {
+              setHeight(contentRef.current.scrollHeight);
+            }
+          }, [isOpen]);
 
           return (
-            <motion.div
-              ref={ref}
+            <AccordionItem
               key={item.id}
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
+              value={item.id}
+              className="!overflow-hidden !bg-black !rounded-2xl transition-all mb-3"
             >
-              <AccordionItem
-                value={item.id}
-                className="!overflow-hidden !bg-black !rounded-2xl transition-all mb-3"
-              >
-                <AccordionPrimitive.Header>
-                  <AccordionPrimitive.Trigger
-                    className="w-full text-left h-35 max-md:h-20 !bg-black text-primary !rounded-t-4xl !rounded-b-4xl data-[state=open]:!rounded-b-none px-5 py-4 transition-all text-[40px] max-md:text-[30px] font-semibold flex items-center justify-between !outline-none
+              <AccordionPrimitive.Header>
+                <AccordionPrimitive.Trigger
+                  className="w-full text-left h-35 max-md:h-20 !bg-black text-primary !rounded-t-4xl !rounded-b-4xl data-[state=open]:!rounded-b-none px-5 py-4 transition-all text-[40px] max-md:text-[30px] font-semibold flex items-center justify-between !outline-none
                     [&_.plus-icon-wrapper_svg>path:last-child]:origin-center
                     [&_.plus-icon-wrapper_svg>path:last-child]:transition-all
                     [&_.plus-icon-wrapper_svg>path:last-child]:duration-200
                     data-[state=open]:[&_.plus-icon-wrapper_svg]:rotate-180
                     data-[state=open]:[&_.plus-icon-wrapper_svg>path:last-child]:rotate-90
                     data-[state=open]:[&_.plus-icon-wrapper_svg>path:last-child]:opacity-0"
-                  >
-                    <span className="px-3 flex items-center gap-14 max-md:gap-3">
-                      <div
-                        className={`bg-white/5 border border-primary/30 p-2 rounded-xl flex transition-opacity duration-300 ${
-                          isOpen ? "opacity-100" : "opacity-40"
-                        }`}
-                      >
-                        <IconComponent
-                          style={{ fontSize: 44 }}
-                          className="max-md:!text-[20px]"
-                        />
-                      </div>
-                      <span className="text-primary">{item.title}</span>
-                    </span>
-                    <div className="bg-primary/20 rounded-full p-3 max-md:p-1 plus-icon-wrapper">
-                      <PlusIcon
-                        size={20}
-                        className="pointer-events-none opacity-60 transition-transform duration-200 max-md:size-5"
-                        aria-hidden="true"
+                >
+                  <span className="px-3 flex items-center gap-14 max-md:gap-3">
+                    <div
+                      className={`bg-white/5 border border-primary/30 p-2 rounded-xl flex transition-opacity duration-300 ${
+                        isOpen ? "opacity-100" : "opacity-40"
+                      }`}
+                    >
+                      <IconComponent
+                        style={{ fontSize: 44 }}
+                        className="max-md:!text-[20px]"
                       />
                     </div>
-                  </AccordionPrimitive.Trigger>
-                </AccordionPrimitive.Header>
+                    <span className="text-primary">{item.title}</span>
+                  </span>
+                  <div className="bg-primary/20 rounded-full p-3 max-md:p-1 plus-icon-wrapper">
+                    <PlusIcon
+                      size={20}
+                      className="pointer-events-none opacity-60 transition-transform duration-200 max-md:size-5"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </AccordionPrimitive.Trigger>
+              </AccordionPrimitive.Header>
 
-                <AccordionContent className="px-5 pb-7 pt-0 text-md text-gray-400 !text-[16px] !text-center !bg-black data-[state=open]:!rounded-b-4xl !rounded-t-none transition-all">
-                  <hr className="mb-6 border-[0.3] border-gray-400" />
-                  {item.content}
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: height, opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      height: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.2 },
+                    }}
+                    style={{ overflow: "hidden" }}
+                    aria-hidden={!isOpen}
+                  >
+                    <div
+                      ref={contentRef}
+                      className="px-5 pb-7 pt-0 text-md text-gray-400 !text-[16px] !text-center !bg-black data-[state=open]:!rounded-b-4xl !rounded-t-none transition-all"
+                    >
+                      <hr className="mb-6 border-[0.3] border-gray-400" />
+                      {item.content}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </AccordionItem>
           );
         })}
       </Accordion>
