@@ -6,13 +6,6 @@ import EuroIcon from "@mui/icons-material/Euro";
 import GroupIcon from "@mui/icons-material/Group";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
-import { Accordion as AccordionPrimitive } from "radix-ui";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-} from "@/components/ui/accordion";
-
 const items = [
   {
     id: "1",
@@ -46,96 +39,103 @@ const items = [
 
 export default function Component() {
   const [openItem, setOpenItem] = useState(null);
+  const heights = useRef({}); // Cache heights for better performance
+
+  function useCachedHeight(open, id, ref) {
+    const [height, setHeight] = useState(0);
+
+    useEffect(() => {
+      if (open && ref.current) {
+        if (!heights.current[id]) {
+          const measuredHeight = ref.current.scrollHeight;
+          heights.current[id] = measuredHeight;
+          setHeight(measuredHeight);
+        } else {
+          setHeight(heights.current[id]);
+        }
+      } else {
+        setHeight(0);
+      }
+    }, [open, id, ref]);
+
+    return height;
+  }
 
   return (
     <div className="space-y-4">
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full"
-        value={openItem}
-        onValueChange={(value) => setOpenItem(value)}
-      >
-        {items.map((item) => {
-          const IconComponent = item.icon;
-          const isOpen = openItem === item.id;
+      {items.map((item) => {
+        const IconComponent = item.icon;
+        const isOpen = openItem === item.id;
 
-          const contentRef = useRef(null);
-          const [height, setHeight] = useState(0);
+        const contentRef = useRef(null);
+        const height = useCachedHeight(isOpen, item.id, contentRef);
 
-          useEffect(() => {
-            if (contentRef.current) {
-              setHeight(contentRef.current.scrollHeight);
-            }
-          }, [isOpen]);
-
-          return (
-            <AccordionItem
-              key={item.id}
-              value={item.id}
-              className="!overflow-hidden !bg-black !rounded-2xl transition-all mb-3"
+        return (
+          <div
+            key={item.id}
+            className="!overflow-hidden !bg-black !rounded-2xl transition-all mb-3"
+          >
+            <button
+              onClick={() => setOpenItem(isOpen ? null : item.id)}
+              className={`w-full text-left h-35 max-md:h-20 !bg-black !text-primary !rounded-t-4xl !rounded-b-4xl
+                ${isOpen ? "!rounded-b-none" : ""}
+                px-5 py-4 transition-all text-[40px] max-md:text-[30px] font-semibold flex items-center justify-between !outline-none
+                [&_.plus-icon-wrapper_svg>path:last-child]:origin-center
+                [&_.plus-icon-wrapper_svg>path:last-child]:transition-all
+                [&_.plus-icon-wrapper_svg>path:last-child]:duration-200
+                ${isOpen ? "[&_.plus-icon-wrapper_svg]:rotate-180 [&_.plus-icon-wrapper_svg>path:last-child]:rotate-90 [&_.plus-icon-wrapper_svg>path:last-child]:opacity-0" : ""}
+              `}
+              aria-expanded={isOpen}
             >
-              <AccordionPrimitive.Header>
-                <AccordionPrimitive.Trigger
-                  className="w-full text-left h-35 max-md:h-20 !bg-black text-primary !rounded-t-4xl !rounded-b-4xl data-[state=open]:!rounded-b-none px-5 py-4 transition-all text-[40px] max-md:text-[30px] font-semibold flex items-center justify-between !outline-none
-                    [&_.plus-icon-wrapper_svg>path:last-child]:origin-center
-                    [&_.plus-icon-wrapper_svg>path:last-child]:transition-all
-                    [&_.plus-icon-wrapper_svg>path:last-child]:duration-200
-                    data-[state=open]:[&_.plus-icon-wrapper_svg]:rotate-180
-                    data-[state=open]:[&_.plus-icon-wrapper_svg>path:last-child]:rotate-90
-                    data-[state=open]:[&_.plus-icon-wrapper_svg>path:last-child]:opacity-0"
+              <span className="px-3 flex items-center gap-14 max-md:gap-3">
+                <div
+                  className={`bg-white/5 border border-primary/30 p-2 rounded-xl flex transition-opacity duration-300 ${
+                    isOpen ? "!opacity-100" : "!opacity-40"
+                  }`}
                 >
-                  <span className="px-3 flex items-center gap-14 max-md:gap-3">
-                    <div
-                      className={`bg-white/5 border border-primary/30 p-2 rounded-xl flex transition-opacity duration-300 ${
-                        isOpen ? "opacity-100" : "opacity-40"
-                      }`}
-                    >
-                      <IconComponent
-                        style={{ fontSize: 44 }}
-                        className="max-md:!text-[20px]"
-                      />
-                    </div>
-                    <span className="text-primary">{item.title}</span>
-                  </span>
-                  <div className="bg-primary/20 rounded-full p-3 max-md:p-1 plus-icon-wrapper">
-                    <PlusIcon
-                      size={20}
-                      className="pointer-events-none opacity-60 transition-transform duration-200 max-md:size-5"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </AccordionPrimitive.Trigger>
-              </AccordionPrimitive.Header>
+                  <IconComponent
+                    style={{ fontSize: 44 }}
+                    className="max-md:!text-[20px]"
+                  />
+                </div>
+                <span className="!text-primary">{item.title}</span>
+              </span>
+              <div className="plus-icon-wrapper bg-primary/20 rounded-full p-3 max-md:p-1">
+                <PlusIcon
+                  size={20}
+                  className="pointer-events-none opacity-60 transition-transform duration-200 max-md:size-5"
+                  aria-hidden="true"
+                />
+              </div>
+            </button>
 
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: height, opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{
-                      height: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
-                    }}
-                    style={{ overflow: "hidden" }}
-                    aria-hidden={!isOpen}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: height, opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{
+                    height: { type: "spring", stiffness: 250, damping: 30 },
+                    opacity: { duration: 0.15 },
+                  }}
+                  style={{ overflow: "hidden" }}
+                  aria-hidden={!isOpen}
+                >
+                  <div
+                    ref={contentRef}
+                    className="px-5 pb-7 pt-0 text-md text-gray-400 !text-[16px] !text-center !bg-black !rounded-b-4xl !rounded-t-none transition-all"
                   >
-                    <div
-                      ref={contentRef}
-                      className="px-5 pb-7 pt-0 text-md text-gray-400 !text-[16px] !text-center !bg-black data-[state=open]:!rounded-b-4xl !rounded-t-none transition-all"
-                    >
-                      <hr className="mb-6 border-[0.3] border-gray-400" />
-                      {item.content}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
+                    <hr className="mb-6 border-[0.3] border-gray-400" />
+                    {item.content}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
     </div>
   );
 }
