@@ -21,12 +21,13 @@ const Footer = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-  <footer
-    ref={ref}
-    className="bg-gray-100 text-gray-300 py-8 w-full overflow-hidden mt-30 mb-[-30px] rounded-t-4xl place-self-center"
-  >
-      <div className="container mx-auto px-6 flex flex-col justify-between items-center gap-6 max-w-screen-md">
-        {/* Logo */}
+    <footer
+      ref={ref}
+      className="bg-gray-100 text-gray-300 py-8 w-screen overflow-hidden mt-30 mb-[-30px] rounded-t-4xl place-self-center"
+
+    >
+      <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
+       
         <motion.img
           src={logo}
           width={96}
@@ -37,7 +38,7 @@ const Footer = () => {
           variants={fadeUp}
         />
 
-        {/* Navigation Links */}
+       
         <motion.nav
           className="flex flex-wrap justify-center gap-10 max-sm:gap-5 !text-white sequelFont-Bold max-md:flex-col mb-10"
           initial="hidden"
@@ -51,7 +52,7 @@ const Footer = () => {
             },
           }}
         >
-          {["Home", "About", "Services", "Contact"].map((item, index) => (
+          {["Home", "About", "Services", "Contact"].map((item) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -64,11 +65,10 @@ const Footer = () => {
         </motion.nav>
 
         <hr className="w-full max-w-screen border-gray-500" />
-
       </div>
 
       <motion.div
-        className="w-full px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center max-md:gap-10 text-gray-300"
+        className="w-full px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center max-md:gap-10 text-gray-300 max-w-screen-xl mx-auto"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={{
@@ -81,7 +81,7 @@ const Footer = () => {
           },
         }}
       >
-        {/* Social Icons */}
+       
         <motion.div className="flex gap-5 text-gray-400" variants={fadeUp}>
           <a
             href="https://instagram.com"
@@ -112,7 +112,7 @@ const Footer = () => {
           </a>
         </motion.div>
 
-        {/* Credits */}
+    
         <motion.a
           href="https://www.linkedin.com/in/jason-kaiser-1922022b8/"
           target="_blank"
@@ -123,8 +123,11 @@ const Footer = () => {
           Site created by <strong className="text-primary">Jason Kaiser</strong>
         </motion.a>
 
-        {/* Copyright */}
-        <motion.div className="text-gray-900 text-sm text-center" variants={fadeUp}>
+     
+        <motion.div
+          className="text-gray-900 text-sm text-center mt-4 md:mt-0"
+          variants={fadeUp}
+        >
           &copy; {new Date().getFullYear()} Load and Go. All rights reserved.
         </motion.div>
       </motion.div>
