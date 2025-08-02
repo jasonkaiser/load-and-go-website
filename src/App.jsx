@@ -17,8 +17,8 @@ function App() {
   return (
     <>
 
-      <Navbar/>
-
+  
+      <Main/>
       <About/>
       <Special/>
       <Services/>
