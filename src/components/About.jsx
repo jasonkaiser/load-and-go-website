@@ -34,7 +34,7 @@ const About = () => {
                         ref={ref2}
                         initial={{x: "-35%", opacity: 0}}   
                         animate={isInView2 ? {x: 0, opacity: 1} : {}}
-                        transition={{ type: "spring", stiffness: 70, duration: 1.3}} 
+                        transition={{ type: "tween", ease: "easeOut", duration: 0.8 }}
                         className="flex flex-col gap-5 items-start max-md:items-center">    
                     <div className='flex items-center gap-6 max-md:flex-col'>
                         <div className='bg-black rounded-2xl p-3'>
@@ -70,7 +70,7 @@ const About = () => {
                         ref={ref}
                         initial={{ scale: 0.3, opacity: 0 }}
                         animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                        transition={{ type: "spring", stiffness: 500, damping: 40, duration: 1.5 }}
+                        transition={{ type: "tween", ease: "easeOut", duration: 0.8 }}
                     >                    
                             <h1 className='text-primary helveticaBold text-7xl max-md:mt-10 '>
                                 300+ 

@@ -33,15 +33,18 @@ const Services = () => {
             </h1>
 
             <div className="relative w-full mx-auto px-4 max-md:px-1 max-md:py-5 justify-self-center">
-                    <MotionCards
-                    ref={ref}
-                    initial={{ opacity: 0, x: -80, scale: 0.95 }}
-                    animate={isInView ? { opacity: 1, x: 0, scale: 1 } : {}}
-                    transition={{
-                        duration: 0.8,
-                        ease: [0.32, 1, 0.86, 1], 
-                        delay: 0.2,
-                    }}/>
+                
+            <MotionCards
+            ref={ref}
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{
+                duration: 0.5,
+                ease: 'easeOut', 
+                delay: 0.1,
+            }}
+            />
+
 
             </div>
         </section>

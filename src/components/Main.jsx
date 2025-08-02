@@ -36,7 +36,12 @@ const Main = () => {
                     <motion.div 
                         initial={{x: "100%", opacity: 0}}   
                         animate={{x: 0, opacity: 1}}
-                        transition={{ type: "spring", stiffness: 70, duration: 1}} 
+                        transition={{
+                                    duration: 0.4,
+                                    ease: 'easeOut',
+                                    delay: 0.1,
+                                }}
+
                         className="sequelFont ml-65 mt-9 border-2 border-black border-dashed pb-1 rounded-4xl px-5 max-md:ml-0 z-10">
                         
                         <h2 className="text-5xl font-semibold py-3 max-md:text-3xl">it’s a new
