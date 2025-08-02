@@ -37,10 +37,13 @@ const Main = () => {
                         initial={{x: "100%", opacity: 0}}   
                         animate={{x: 0, opacity: 1}}
                         transition={{
-                                    duration: 0.4,
-                                    ease: 'easeOut',
-                                    delay: 0.1,
-                                }}
+                            type: 'spring',
+                            stiffness: 200,
+                            damping: 24,
+                            mass: 0.8,
+                            delay: 0.2,
+                        }}
+
 
                         className="sequelFont ml-65 mt-9 border-2 border-black border-dashed pb-1 rounded-4xl px-5 max-md:ml-0 z-10">
                         
