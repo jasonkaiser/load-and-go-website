@@ -21,7 +21,7 @@ const Footer = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen mt-50 mb-[-30px]">
       <footer
         ref={ref}
         className="bg-gray-100 text-gray-800 py-10 rounded-t-4xl overflow-x-hidden"
