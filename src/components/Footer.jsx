@@ -21,11 +21,11 @@ const Footer = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <footer
-      ref={ref}
-      className="bg-gray-100 text-gray-300 py-8 w-[99.2vw] place-self-center mt-30 mb-[-30px] rounded-t-4xl overflow-hidden"
-    >
-      <div className="container mx-auto px-6 flex flex-col justify-between items-center gap-6">
+  <footer
+    ref={ref}
+    className="bg-gray-100 text-gray-300 py-8 w-screen overflow-hidden mt-30 mb-[-30px] rounded-t-4xl place-self-center"
+  >
+      <div className="container mx-auto px-6 flex flex-col justify-between items-center gap-6 max-w-screen">
         {/* Logo */}
         <motion.img
           src={logo}
