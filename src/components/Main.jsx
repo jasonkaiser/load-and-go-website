@@ -13,7 +13,7 @@ const Main = () => {
                         <WavyRoad/>
                         <div>                    
                             <TextReveal
-                                className="text-8xl font-bold sequelFont max-md:text-6xl"
+                                className="text-8xl font-bold sequelFont max-md:text-5xl"
                                 delay={0.05}
                                 duration={0.6}
                                 from="bottom"

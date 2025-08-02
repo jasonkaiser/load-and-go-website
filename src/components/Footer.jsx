@@ -117,7 +117,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/jason-kaiser-1922022b8/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black ml-35 max-md:ml-0"
+          className="text-black ml-0 md:ml-10"
           variants={fadeUp}
         >
           Site created by <strong className="text-primary">Jason Kaiser</strong>
