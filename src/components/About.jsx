@@ -15,7 +15,7 @@ const About = () => {
     const isInView = useInView(ref, { once: true, threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
 
     const ref2 = useRef(null);
-    const isInView2 = useInView(ref2, { once: true, threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
+    const isInView2 = useInView(ref2, { once: true, threshold: 0, rootMargin: '100px 0px 0px 0px' });
 
     return (
 
@@ -32,9 +32,9 @@ const About = () => {
 
                 <motion.div 
                         ref={ref2}
-                        initial={{x: "-130%", opacity: 0}}   
+                        initial={{x: "-35%", opacity: 0}}   
                         animate={isInView2 ? {x: 0, opacity: 1} : {}}
-                        transition={{ type: "spring", stiffness: 50, duration: 1.2}} 
+                        transition={{ type: "spring", stiffness: 70, duration: 1.3}} 
                         className="flex flex-col gap-5 items-start max-md:items-center">    
                     <div className='flex items-center gap-6 max-md:flex-col'>
                         <div className='bg-black rounded-2xl p-3'>
