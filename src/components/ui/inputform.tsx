@@ -2,7 +2,7 @@ const InputForm = ({ placeholder, type, width = "w-full", name, value, onChange,
   const isDateOrTime = type === "date" || type === "time";
 
   const containerClasses = isDateOrTime
-    ? "relative max-w-xs w-auto md:max-w-full md:w-full max-md:block max-md:text-left max-md:ml-0"
+    ? "relative max-w-xs w-auto md:max-w-full md:w-full max-md:block max-md:text-left max-md:ml-0 place-self-center"
     : `relative ${width}`;
 
   const inputClasses = `
