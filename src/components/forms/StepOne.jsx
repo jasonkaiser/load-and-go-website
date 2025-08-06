@@ -80,7 +80,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       />
       {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-      <div className="mt-10 flex flex-col gap-5">
+      <div className="mt-10 flex flex-col gap-5 place-self-center">
         <InputForm
         label="Select Date"
         name="date"
