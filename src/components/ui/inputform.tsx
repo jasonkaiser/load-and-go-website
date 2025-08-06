@@ -14,7 +14,7 @@ const InputForm = ({ placeholder, type, width = "w-full", name, value, onChange,
 
   return (
     <div className={containerClasses}>
-      {label && <label htmlFor={name} className="block mb-1 text-black text-sm md:hidden">{label}</label>}
+      {label && <label htmlFor={name} className="block mb-1 text-black text-center text-sm md:hidden place-self-center">{label}</label>}
       <input
         id={name}
         name={name}
