@@ -80,7 +80,8 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       />
       {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-      <InputForm
+      <div className="mt-10 flex flex-col gap-5">
+        <InputForm
         label="Select Date"
         name="date"
         type="date"
@@ -99,6 +100,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
         onChange={handleChange}
       />
       {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+      </div>
 
       <button
         type="submit"
