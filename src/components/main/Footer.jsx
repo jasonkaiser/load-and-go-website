@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
-import logo from "../assets/logo2.png";
+import logo from "../../assets/logo2.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -107,12 +107,15 @@ const Footer = () => {
             href="https://www.linkedin.com/in/jason-kaiser-1922022b8/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-yellow-500 transition-colors font-semibold"
+            className="hover:text-yellow-500 transition-colors font-semibold ml-30 max-md:ml-0"
             variants={fadeUp}
           >
             Site created by <strong className="text-primary">Jason Kaiser</strong>
           </motion.a>
 
+          <motion.span variants={fadeUp}>
+            Sulzweg 3 München 81827
+          </motion.span>
         
           <motion.div className="text-center md:text-right" variants={fadeUp}>
             &copy; {new Date().getFullYear()} Load and Go. All rights reserved.

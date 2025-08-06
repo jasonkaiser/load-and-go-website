@@ -1,7 +1,7 @@
-import logo from '../assets/logo-yellow.png';
-import packageImage from '../assets/package.webp';
+import logo from '../../assets/logo-yellow.png';
+import packageImage from '../../assets/package.webp';
 import { MdLocationOn } from 'react-icons/md';
-import Clients from './ui/clients';
+import Clients from '../ui/clients';
 import AcordionData from './Special';
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
