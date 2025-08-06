@@ -92,7 +92,7 @@ const handleSubmit = (finalStepData, options = {}) => {
 
 
   return (
-    <div className="mx-auto p-4 w-4xl max-md:w-110">
+    <div className="mx-auto p-4 max-w-4xl w-full max-md:w-full">
       {isSuccess ? (
         <div className="bg-primary text-black rounded-2xl p-10 text-center text-lg font-semibold flex flex-col justify-center items-center">
           <AiFillCheckCircle size={64} />
