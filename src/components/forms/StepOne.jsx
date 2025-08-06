@@ -81,6 +81,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
       <InputForm
+        label="Select Date"
         name="date"
         type="date"
         placeholder="Date"
@@ -90,6 +91,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
 
       <InputForm
+        label="Select Time"
         name="time"
         type="time"
         placeholder="Time"
