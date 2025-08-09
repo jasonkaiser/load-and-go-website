@@ -13,8 +13,10 @@ A sleek, responsive web application built with **React**, **Tailwind CSS**, and 
 - 🎨 Styled using **Tailwind CSS** for rapid and scalable styling  
 - 🎞️ Animated transitions powered by **Framer Motion**  
 - 🔄 Modular architecture with reusable components  
-- 📦 Clean data flow and state management  
+- 📦 Clean data flow and state management
+- 📬 3-Step Service Request Form powered by EmailJS for fast and secure submissions directly to the company
 - 🚀 Easy deployment and blazing-fast performance
+  
 
 ---
 
@@ -24,6 +26,7 @@ A sleek, responsive web application built with **React**, **Tailwind CSS**, and 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Vite](https://vitejs.dev/)
+- [EmailJS](https://www.emailjs.com/)
 
 ---
 
