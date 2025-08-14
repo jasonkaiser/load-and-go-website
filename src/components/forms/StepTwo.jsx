@@ -31,10 +31,10 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
 
   const validate = () => {
     const newErrors = {};
-    if (!localData.country.trim()) newErrors.country = "Country is required";
-    if (!localData.city.trim()) newErrors.city = "City is required";
-    if (!localData.zip.trim()) newErrors.zip = "Zip Code is required";
-    if (!localData.pickupAddress.trim()) newErrors.pickupAddress = "Pickup Address is required";
+    if (!localData.country.trim()) newErrors.country = "Land ist erforderlich";
+    if (!localData.city.trim()) newErrors.city = "Stadt ist erforderlich";
+    if (!localData.zip.trim()) newErrors.zip = "Postleitzahl ist erforderlich";
+    if (!localData.pickupAddress.trim()) newErrors.pickupAddress = "Abholadresse ist erforderlich";
     return newErrors;
   };
 
@@ -56,7 +56,7 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
       <InputForm
         name="country"
         type="text"
-        placeholder="Country"
+        placeholder="Land"
         value={localData.country}
         onChange={handleChange}
       />
@@ -65,7 +65,7 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
       <InputForm
         name="city"
         type="text"
-        placeholder="City"
+        placeholder="Stadt"
         value={localData.city}
         onChange={handleChange}
       />
@@ -74,7 +74,7 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
       <InputForm
         name="zip"
         type="text"
-        placeholder="Zip Code"
+        placeholder="Postleitzahl"
         value={localData.zip}
         onChange={handleChange}
       />
@@ -83,7 +83,7 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
       <InputForm
         name="pickupAddress"
         type="text"
-        placeholder="Pickup Address"
+        placeholder="Abholadresse"
         value={localData.pickupAddress}
         onChange={handleChange}
       />
@@ -92,14 +92,14 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
       <InputForm
         name="dropoffAddress"
         type="text"
-        placeholder="Drop-off Address (optional)"
+        placeholder="Lieferadresse (optional)"
         value={localData.dropoffAddress}
         onChange={handleChange}
       />
 
       <textarea
         name="instructions"
-        placeholder="Special Instructions (optional)"
+        placeholder="Besondere Anweisungen (optional)"
         className="w-full p-4 !outline-none rounded-2xl bg-black text-gray-200 placeholder:text-gray-400 border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition"
         rows="4"
         value={localData.instructions}
@@ -110,18 +110,18 @@ const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
         <button
           type="button"
           onClick={() => {
-            updateFormData(localData); // save progress before going back
+            updateFormData(localData); 
             onBack();
           }}
           className="sequelFont-Bold text-sm text-white !bg-gray-300 px-6 py-3 rounded-xl !outline-none"
         >
-          Back
+          Zurück
         </button>
         <button
           type="submit"
           className="sequelFont-Bold !bg-primary text-black px-6 py-3 rounded-xl !outline-none"
         >
-          Next
+          Weiter
         </button>
       </div>
     </form>

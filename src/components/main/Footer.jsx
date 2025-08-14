@@ -47,14 +47,19 @@ const Footer = () => {
               visible: { transition: { staggerChildren: 0.1 } },
             }}
           >
-            {["Home", "About", "Services", "Contact"].map((item) => (
+            {[
+              { label: "Startseite", href: "#home" },
+              { label: "Über uns", href: "#about" },
+              { label: "Dienstleistungen", href: "#services" },
+              { label: "Kontakt", href: "#contact" }
+            ].map((item) => (
               <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="hover:text-yellow-500 transition-colors"
                 variants={fadeUp}
               >
-                {item}
+                {item.label}
               </motion.a>
             ))}
           </motion.nav>
@@ -110,7 +115,7 @@ const Footer = () => {
             className="hover:text-yellow-500 transition-colors font-semibold ml-30 max-md:ml-0"
             variants={fadeUp}
           >
-            Site created by <strong className="text-primary">Jason Kaiser</strong>
+            Website erstellt von <strong className="text-primary">Jason Kaiser</strong>
           </motion.a>
 
           <motion.span variants={fadeUp}>
@@ -118,7 +123,7 @@ const Footer = () => {
           </motion.span>
         
           <motion.div className="text-center md:text-right" variants={fadeUp}>
-            &copy; {new Date().getFullYear()} Load and Go. All rights reserved.
+            &copy; {new Date().getFullYear()} Load and Go. Alle Rechte vorbehalten.
           </motion.div>
         </motion.div>
       </footer>

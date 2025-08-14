@@ -19,90 +19,88 @@ const MultiStepForm = ({ service }) => {
     setFormData((prev) => ({ ...prev, ...data }));
   };
 
-const handleSubmit = (finalStepData, options = {}) => {
-  const rawData = { ...formData, ...finalStepData, service };
+  const handleSubmit = (finalStepData, options = {}) => {
+    const rawData = { ...formData, ...finalStepData, service };
 
+    if (options.skipSubmit) {
+      setFormData(rawData);
+      return;
+    }
 
-  if (options.skipSubmit) {
-    setFormData(rawData);
-    return;
-  }
+    const fullData = {
+      fullName: rawData.fullName || "",
+      phone: rawData.phone || "",
+      email: rawData.email || "",
+      date: rawData.date || "",
+      time: rawData.time || "",
 
-  const fullData = {
-    fullName: rawData.fullName || "",
-    phone: rawData.phone || "",
-    email: rawData.email || "",
-    date: rawData.date || "",
-    time: rawData.time || "",
+      country: rawData.country || "",
+      city: rawData.city || "",
+      zip: rawData.zip || "",
+      pickupAddress: rawData.pickupAddress || "",
+      dropoffAddress: rawData.dropoffAddress || "",
+      instructions: rawData.instructions || "",
 
-    country: rawData.country || "",
-    city: rawData.city || "",
-    zip: rawData.zip || "",
-    pickupAddress: rawData.pickupAddress || "",
-    dropoffAddress: rawData.dropoffAddress || "",
-    instructions: rawData.instructions || "",
+      service: rawData.service || "",
 
-    service: rawData.service || "",
+      itemType: rawData.itemType || "",
+      boxSizes: rawData.boxSizes || "",
+      pickupFloor: rawData.pickupFloor || "",
+      dropoffFloor: rawData.dropoffFloor || "",
+      specialItems: rawData.specialItems || "",
 
-    itemType: rawData.itemType || "",
-    boxSizes: rawData.boxSizes || "",
-    pickupFloor: rawData.pickupFloor || "",
-    dropoffFloor: rawData.dropoffFloor || "",
-    specialItems: rawData.specialItems || "",
+      estimatedBoxes: rawData.estimatedBoxes || "",
+      packingMaterials: rawData.packingMaterials ? "Ja" : "Nein",
+      fragileItems: rawData.fragileItems || "",
 
-    estimatedBoxes: rawData.estimatedBoxes || "",
-    packingMaterials: rawData.packingMaterials ? "Yes" : "No",
-    fragileItems: rawData.fragileItems || "",
+      quantity: rawData.quantity || "",
+      disassembly: rawData.disassembly ? "Ja" : "Nein",
+      toolsOrInstructions: rawData.toolsOrInstructions || "",
 
-    quantity: rawData.quantity || "",
-    disassembly: rawData.disassembly ? "Yes" : "No",
-    toolsOrInstructions: rawData.toolsOrInstructions || "",
+      locationDistance: rawData.locationDistance || "",
+      urgency: rawData.urgency || "",
+      accessNotes: rawData.accessNotes || "",
 
-    locationDistance: rawData.locationDistance || "",
-    urgency: rawData.urgency || "",
-    accessNotes: rawData.accessNotes || "",
+      hazardous: rawData.hazardous || "",
+      indoor: rawData.indoor ? "Ja" : "Nein",
 
-    hazardous: rawData.hazardous || "",
-    indoor: rawData.indoor ? "Yes" : "No",
+      notes: rawData.notes || "",
+    };
 
-    notes: rawData.notes || "",
+    setIsSubmitting(true);
+    setMessage("");
+
+    console.log("Sende Daten an EmailJS:", fullData);
+
+    emailjs
+      .send("service_gtwypqa", "template_t3iw3jh", fullData, "Bl55RWTec1Qhzl1xv")
+      .then(() => {
+        setMessage("✅ Ihre Anfrage wurde erfolgreich gesendet.");
+        setIsSuccess(true);
+        setStep(1);
+        setFormData({});
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 3000);
+      })
+      .catch(() => {
+        setMessage("❌ Senden fehlgeschlagen. Bitte versuchen Sie es erneut.");
+      })
+      .finally(() => setIsSubmitting(false));
   };
-
-  setIsSubmitting(true);
-  setMessage("");
-
-  console.log("Sending data to EmailJS:", fullData);
-
-  emailjs
-    .send("service_gtwypqa", "template_t3iw3jh", fullData, "Bl55RWTec1Qhzl1xv")
-    .then(() => {
-      setMessage("Your request has been sent successfully.");
-      setIsSuccess(true);
-      setStep(1);
-      setFormData({});
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 3000);
-    })
-    .catch(() => {
-      setMessage("Failed to send request. Please try again.");
-    })
-    .finally(() => setIsSubmitting(false));
-};
-
 
   return (
     <div className="mx-auto p-4 max-w-4xl w-full max-md:w-full">
       {isSuccess ? (
         <div className="bg-primary text-black rounded-2xl p-10 text-center text-lg font-semibold flex flex-col justify-center items-center">
           <AiFillCheckCircle size={64} />
-          Your request has been sent successfully.
+          Ihre Anfrage wurde erfolgreich gesendet.
         </div>
       ) : (
         <div className="bg-gray-50 rounded-2xl border-2 border-dashed border-primary p-10">
           <div className="mb-6 text-lg font-semibold">
             <div className="flex justify-between items-center mb-10 max-md:flex-col max-md:items-start max-md:gap-10">
-              {["Your Details", "Address Info", "Service Questions"].map((label, index) => {
+              {["Ihre Daten", "Adressinformationen", "Servicefragen"].map((label, index) => {
                 const isActive = step === index + 1;
                 const isCompleted = step > index + 1;
 
@@ -139,7 +137,7 @@ const handleSubmit = (finalStepData, options = {}) => {
           )}
 
           {isSubmitting && (
-            <p className="text-center text-gray-600 mt-4">Sending request...</p>
+            <p className="text-center text-gray-600 mt-4">Anfrage wird gesendet...</p>
           )}
           {message && (
             <p className={`text-center mt-4 font-medium ${message.includes("✅") ? "text-black" : "text-red-500"}`}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { GiBroom } from "react-icons/gi";
 import React, { useRef, useState, useEffect, forwardRef } from "react";
 import {
   IconArrowNarrowLeft,
@@ -137,58 +138,73 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 };
 
 const Cards = forwardRef((props, ref) => {
-  const cardData = [
-    {
-      title: "Small & Large Moves",
-      category: "Transport",
-      src: "https://load-and-go-website.vercel.app/image1.jpg",
-      href: "/services/small-large-moves",
-      content:
-        "Efficient moving services for homes, offices, and everything in between.",
-      icon: IconTruckLoading,
-    },
-    {
-      title: "Express Moves",
-      category: "Fast Delivery",
-      src: "https://load-and-go-website.vercel.app/image2.jpg",
-      href: "/services/express-moves",
-      content: "Need to move in a hurry? Our express option is built for speed.",
-      icon: IconRocket,
-    },
-    {
-      title: "Packing Services",
-      category: "Protection",
-      src: "https://load-and-go-website.vercel.app/image3.jpg",
-      href: "/services/packing-service",
-      content: "Professional packing to ensure your items are safe and secure.",
-      icon: IconBoxSeam,
-    },
-    {
-      title: "Furniture Assembly & Disassembly",
-      category: "Convenience",
-      src: "https://load-and-go-website.vercel.app/image4.jpg",
-      href: "/services/furniture-ad",
-      content:
-        "We take care of the heavy lifting — literally and structurally.",
-      icon: IconTool,
-    },
-    {
-      title: "Furniture Disposal",
-      category: "Waste Removal",
-      src: "https://load-and-go-website.vercel.app/image5.jpg",
-      href: "/services/furniture-disposal",
-      content: "Out with the old. We dispose of unwanted furniture responsibly.",
-      icon: IconTrashX,
-    },
-    {
-      title: "Personal Contact",
-      category: "Support",
-      src: "https://load-and-go-website.vercel.app/image6.jpg",
-      href: "/services/personal-contact",
-      content: "Talk to a real person, anytime you need assistance.",
-      icon: IconUser,
-    },
-  ];
+const cardData = [
+  {
+    title: "Kleine und große Umzüge",
+    category: "Transport",
+    src: "https://load-and-go-website.vercel.app/image1.jpg",
+    href: "/services/small-large-moves",
+    content:
+      "Effiziente Umzugsdienste für Wohnungen, Büros und alles dazwischen.",
+    icon: IconTruckLoading,
+  },
+  {
+    title: "Express-Umzüge",
+    category: "Fast Delivery",
+    src: "https://load-and-go-website.vercel.app/image2.jpg",
+    href: "/services/express-moves",
+    content:
+      "Schnell umziehen? Unsere Express-Option ist für Geschwindigkeit gebaut.",
+    icon: IconRocket,
+  },
+  {
+    title: "Verpackungsservice",
+    category: "Protection",
+    src: "https://load-and-go-website.vercel.app/image3.jpg",
+    href: "/services/packing-service",
+    content:
+      "Professionelles Verpacken, damit Ihre Gegenstände sicher ankommen.",
+    icon: IconBoxSeam,
+  },
+  {
+    title: "Möbelmontage & -demontage",
+    category: "Convenience",
+    src: "https://load-and-go-website.vercel.app/image4.jpg",
+    href: "/services/furniture-ad",
+    content:
+      "Wir kümmern uns um das schwere Heben – buchstäblich und strukturell.",
+    icon: IconTool,
+  },
+  {
+    title: "Entsorgung alter Möbel",
+    category: "Waste Removal",
+    src: "https://load-and-go-website.vercel.app/image5.jpg",
+    href: "/services/furniture-disposal",
+    content:
+      "Altes raus. Wir entsorgen nicht mehr benötigte Möbel verantwortungsbewusst.",
+    icon: IconTrashX,
+  },
+  {
+    title: "Persönlicher Kontakt",
+    category: "Support",
+    src: "https://load-and-go-website.vercel.app/image6.jpg",
+    href: "/services/personal-contact",
+    content:
+      "Sprechen Sie jederzeit mit einer realen Person, wenn Sie Hilfe benötigen.",
+    icon: IconUser,
+  },
+  {
+    title: "Reinigungsservice",
+    category: "Cleaning",
+    src: "https://load-and-go-website.vercel.app/image3.jpg",
+    href: "/services/cleaning-service",
+    content:
+      "Professionelle Reinigungsdienste für Wohnungen, Büros und Umzugsreinigungen.",
+    icon: GiBroom,
+  },
+];
+
+
 
   return (
     <div ref={ref}>

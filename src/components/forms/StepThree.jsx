@@ -2,47 +2,56 @@ import { useState, useEffect } from "react";
 import InputForm from "../ui/inputform";
 
 const formSchema = {
-  "Small and Large Moves": [
-    { name: "itemType", type: "text", placeholder: "What are you moving?", required: true },
-    { name: "boxSizes", type: "text", placeholder: "Box sizes or quantity" },
-    { name: "pickupFloor", type: "text", placeholder: "Pickup floor (elevator/stairs?)" },
-    { name: "dropoffFloor", type: "text", placeholder: "Drop-off floor (elevator/stairs?)" },
-    { name: "specialItems", type: "text", placeholder: "Fragile/heavy items (e.g. piano, safe)?" },
+  "Kleine und große Umzüge": [
+    { name: "itemType", type: "text", placeholder: "Was möchten Sie transportieren?", required: true },
+    { name: "boxSizes", type: "text", placeholder: "Kartongrößen oder Menge" },
+    { name: "pickupFloor", type: "text", placeholder: "Abhol-Etage (Aufzug/Treppe?)" },
+    { name: "dropoffFloor", type: "text", placeholder: "Liefer-Etage (Aufzug/Treppe?)" },
+    { name: "specialItems", type: "text", placeholder: "Empfindliche/schwere Gegenstände (z. B. Klavier, Safe)?" },
   ],
-  "Packing service": [
-    { name: "itemType", type: "text", placeholder: "What needs to be packed?", required: true },
-    { name: "estimatedBoxes", type: "text", placeholder: "Estimated box quantity", required: true },
-    { name: "packingMaterials", type: "checkbox", label: "Need packing materials provided?" },
-    { name: "fragileItems", type: "text", placeholder: "Any fragile/special items?" },
+  "Verpackungsservice": [
+    { name: "itemType", type: "text", placeholder: "Was soll verpackt werden?", required: true },
+    { name: "estimatedBoxes", type: "text", placeholder: "Geschätzte Kartonanzahl", required: true },
+    { name: "packingMaterials", type: "checkbox", label: "Verpackungsmaterialien bereitstellen?" },
+    { name: "fragileItems", type: "text", placeholder: "Empfindliche/besondere Gegenstände?" },
   ],
-  "Furniture assembly & disassembly": [
-    { name: "itemType", type: "text", placeholder: "Type of furniture", required: true },
-    { name: "quantity", type: "number", placeholder: "How many items?", required: true },
-    { name: "disassembly", type: "checkbox", label: "Need disassembly service?" },
-    { name: "toolsOrInstructions", type: "text", placeholder: "Any tools/instructions needed?" },
+  "Möbelmontage & -demontage": [
+    { name: "itemType", type: "text", placeholder: "Art der Möbel", required: true },
+    { name: "quantity", type: "number", placeholder: "Wie viele Stück?", required: true },
+    { name: "disassembly", type: "checkbox", label: "Demontageservice benötigt?" },
+    { name: "toolsOrInstructions", type: "text", placeholder: "Werkzeuge/Anweisungen erforderlich?" },
   ],
-  "Express moves": [
-    { name: "itemType", type: "text", placeholder: "What needs to be moved?", required: true },
-    { name: "locationDistance", type: "text", placeholder: "Distance in km (approx)", required: true },
+  "Express-Umzüge": [
+    { name: "itemType", type: "text", placeholder: "Was muss transportiert werden?", required: true },
+    { name: "locationDistance", type: "text", placeholder: "Entfernung in km (ca.)", required: true },
     {
       name: "urgency",
       type: "select",
-      options: ["", "asap", "24h", "scheduled"],
-      placeholder: "Select urgency",
+      options: ["", "sofort", "24h", "geplant"],
+      placeholder: "Dringlichkeit auswählen",
     },
-    { name: "accessNotes", type: "text", placeholder: "Any access or parking notes?" },
+    { name: "accessNotes", type: "text", placeholder: "Zugang- oder Parkhinweise?" },
   ],
-  "Disposal of old furniture": [
-    { name: "itemType", type: "text", placeholder: "Item(s) to dispose of", required: true },
-    { name: "quantity", type: "text", placeholder: "How many items?" },
-    { name: "pickupFloor", type: "text", placeholder: "Which floor is it on?" },
-    { name: "hazardous", type: "text", placeholder: "Any hazardous materials?" },
-    { name: "indoor", type: "checkbox", label: "Is the furniture indoors?" },
+  "Entsorgung alter Möbel": [
+    { name: "itemType", type: "text", placeholder: "Zu entsorgende Gegenstände", required: true },
+    { name: "quantity", type: "text", placeholder: "Wie viele Stück?" },
+    { name: "pickupFloor", type: "text", placeholder: "In welcher Etage befindet es sich?" },
+    { name: "hazardous", type: "text", placeholder: "Gefährliche Materialien?" },
+    { name: "indoor", type: "checkbox", label: "Befindet sich das Möbelstück drinnen?" },
+  ],
+  "Reinigungsservice": [
+    { name: "cleaningType", type: "select", options: ["", "Wohnung", "Büro", "Fenster", "Teppiche"], placeholder: "Art der Reinigung auswählen", required: true },
+    { name: "areaSize", type: "text", placeholder: "Größe der Fläche (m²)" },
+    { name: "cleaningDate", type: "date", placeholder: "Gewünschtes Reinigungsdatum" },
+    { name: "timeSlot", type: "select", options: ["", "Morgen", "Nachmittag", "Abend"], placeholder: "Bevorzugte Uhrzeit" },
+    { name: "specialRequests", type: "textarea", placeholder: "Besondere Anforderungen oder Hinweise" },
+    { name: "pets", type: "checkbox", label: "Befinden sich Haustiere vor Ort?" },
   ],
   default: [
-    { name: "notes", type: "textarea", placeholder: "Tell us more about your request", required: true },
+    { name: "notes", type: "textarea", placeholder: "Erzählen Sie uns mehr über Ihre Anfrage", required: true },
   ],
 };
+
 
 const StepThree = ({ service, onBack, onSubmit, formData }) => {
   const [localData, setLocalData] = useState({});
@@ -77,7 +86,7 @@ const StepThree = ({ service, onBack, onSubmit, formData }) => {
           (typeof value === "string" && !value.trim()) ||
           (typeof value === "number" && value === "")
         ) {
-          newErrors[field.name] = "This field is required";
+          newErrors[field.name] = "Dieses Feld ist erforderlich";
         }
       }
     });
@@ -178,13 +187,13 @@ const StepThree = ({ service, onBack, onSubmit, formData }) => {
           }}
           className="sequelFont-Bold text-sm text-white !bg-gray-300 px-6 py-3 rounded-xl !outline-none"
         >
-          Back
+          Zurück
         </button>
         <button
           type="submit"
           className="sequelFont-Bold !bg-primary text-black px-6 py-3 rounded-xl !outline-none"
         >
-          Next
+          Weiter
         </button>
       </div>
     </form>

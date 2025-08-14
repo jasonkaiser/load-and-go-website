@@ -25,55 +25,54 @@ const Contact = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!form.email.trim()) newErrors.email = "Email is required";
-    if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Email is invalid";
-    if (!form.message.trim()) newErrors.message = "Message is required";
+    if (!form.firstName.trim()) newErrors.firstName = "Vorname ist erforderlich";
+    if (!form.lastName.trim()) newErrors.lastName = "Nachname ist erforderlich";
+    if (!form.email.trim()) newErrors.email = "E-Mail ist erforderlich";
+    if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "E-Mail ist ungültig";
+    if (!form.message.trim()) newErrors.message = "Nachricht ist erforderlich";
     return newErrors;
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const validationErrors = validate();
-  if (Object.keys(validationErrors).length > 0) {
-    setErrors(validationErrors);
-    return;
-  }
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
-  emailjs.send(
-    "service_gtwypqa",
-    "template_t8vyyai",
-    {
-      from_name: `${form.firstName} ${form.lastName}`,
-      from_email: form.email,
-      message: form.message,
-    },
-    "Bl55RWTec1Qhzl1xv"
-  ).then(() => {
-    setSuccess(true);
-    setForm({
-      firstName: "",
-      lastName: "",
-      email: "",
-      message: "",
+    emailjs.send(
+      "service_gtwypqa",
+      "template_t8vyyai",
+      {
+        from_name: `${form.firstName} ${form.lastName}`,
+        from_email: form.email,
+        message: form.message,
+      },
+      "Bl55RWTec1Qhzl1xv"
+    ).then(() => {
+      setSuccess(true);
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 4000);
+    }, (error) => {
+      console.error("E-Mail Fehler:", error.text);
     });
-
-    
-    setTimeout(() => {
-      setSuccess(false);
-    }, 4000);
-  }, (error) => {
-    console.error("Email error:", error.text);
-  });
-};
+  };
 
   return (
     <section id="contact" className="flex items-center justify-center flex-col max-md:mt-0 scroll-mt-25">
-      <h1 className="mb-4 mt-20">── CONTACT ──</h1>
+      <h1 className="mb-4 mt-20">── KONTAKT ──</h1>
       <h1 className=" helveticaBold text-6xl text-black border-2 border-dashed border-primary p-3 px-10 rounded-4xl max-md:text-3xl mb-15">
-        Talk with us!
+        Sprich mit uns!
       </h1>
 
       <div className="pointer-events-none absolute left-0 top-880 max-md:hidden h-screen w-[800px] z-[1] opacity-70 !bg-[radial-gradient(circle_at_left_center,_#fff700_0%,_#ffd700_0%,_rgba(255,255,255,0)_45%)]" />
@@ -81,7 +80,7 @@ const Contact = () => {
       {success ? (
         <div className="bg-primary text-black rounded-2xl p-10 text-center text-lg font-semibold flex flex-col justify-center items-center">
           <AiFillCheckCircle size={64} />
-          Your request has been sent successfully.
+          Deine Anfrage wurde erfolgreich gesendet.
         </div>
       ) : (
         <motion.form
@@ -100,7 +99,7 @@ const Contact = () => {
                 value={form.firstName}
                 onChange={handleChange}
                 type="text"
-                placeholder="First Name"
+                placeholder="Vorname"
                 className="w-full bg-black p-4 pl-10 rounded-2xl placeholder-gray-200/60 placeholder:text-[14px] text-gray-200 sequelFont !outline-none 
                 border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition duration-300"
               />
@@ -114,7 +113,7 @@ const Contact = () => {
                 value={form.lastName}
                 onChange={handleChange}
                 type="text"
-                placeholder="Last Name"
+                placeholder="Nachname"
                 className="w-full bg-black p-4 pl-10 rounded-2xl placeholder-gray-200/60 placeholder:text-[14px] text-gray-200 sequelFont !outline-none 
                 border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition duration-300"
               />
@@ -129,7 +128,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               type="email"
-              placeholder="Email"
+              placeholder="E-Mail"
               className="w-full bg-black p-4 pl-10 rounded-2xl placeholder-gray-200/60 placeholder:text-[14px] text-gray-200 sequelFont !outline-none 
               border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition duration-300"
             />
@@ -143,7 +142,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               rows="7"
-              placeholder="Write your message"
+              placeholder="Schreibe deine Nachricht"
               className="w-full bg-black p-4 pl-10 rounded-2xl placeholder-gray-200/60 placeholder:text-[15px] text-gray-200 sequelFont !outline-none 
               border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition duration-300 resize-none"
             ></textarea>
@@ -158,7 +157,7 @@ const Contact = () => {
           >
             <MdLocalShipping className="w-7 h-7 text-black transition-all duration-500 ease-in-out absolute left-4 top-1/2 -translate-y-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2" />
             <span className="transition-opacity text-black sequelFont-Bold duration-500 ease-in-out group-hover:opacity-0 ml-10">
-              Send
+              Senden
             </span>
           </motion.button>
         </motion.form>

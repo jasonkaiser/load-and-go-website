@@ -22,47 +22,54 @@ import {
 } from "@/components/ui/popover";
 
 const navigationLinks = [
-  { href: "home", label: "Home", scrollToSection: true },
-  { href: "about", label: "About Us", scrollToSection: true },
-  { href: "contact", label: "Contact", scrollToSection: true },
+  { href: "home", label: "Startseite", scrollToSection: true },
+  { href: "about", label: "Über uns", scrollToSection: true },
+  { href: "contact", label: "Kontakt", scrollToSection: true },
   {
-    label: "Services",
+    label: "Dienstleistungen",
     submenu: true,
     type: "description",
     items: [
       {
         href: "/services/small-large-moves",
-        label: "Small and large moves",
+        label: "Kleine und große Umzüge",
         description: "",
       },
       {
         href: "/services/express-moves",
-        label: "Express moves",
+        label: "Express-Umzüge",
         description: "",
       },
       {
         href: "/services/packing-service",
-        label: "Packing service",
+        label: "Verpackungsservice",
         description: "",
       },
       {
         href: "/services/furniture-ad",
-        label: "Furniture assembly & disassembly",
+        label: "Möbelmontage & -demontage",
         description: "",
       },
       {
         href: "/services/furniture-disposal",
-        label: "Disposal of old furniture",
+        label: "Entsorgung alter Möbel",
         description: "",
       },
       {
         href: "/services/personal-contact",
-        label: "Personal contact",
+        label: "Persönlicher Kontakt",
+        description: "",
+      },
+      {
+        href: "/services/cleaning-service",
+        label: "Reinigungsservice",
         description: "",
       },
     ],
   },
 ];
+
+
 
 export default function Header() {
   const navigate = useNavigate();
@@ -221,7 +228,7 @@ export default function Header() {
               className="text-red-500"
               onClick={(e) => handleScrollLink(e, "services")}
             >
-              Start now
+              Jetzt starten
             </a>
           </Button>
         </div>

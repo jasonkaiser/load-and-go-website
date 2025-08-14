@@ -10,32 +10,33 @@ const items = [
   {
     id: "1",
     icon: SpeedIcon,
-    title: "Speed",
+    title: "Geschwindigkeit",
     content:
-      "We offer reliable, lightning-fast delivery services that our clients can count on. Same-day delivery is available for urgent needs, and we pride ourselves on punctuality. Our streamlined logistics ensure minimal delays and real-time coordination. Whether it's a single package or a full load, we move quickly and efficiently to meet your schedule. Speed isn't just a promise — it's part of how we operate every day.",
+      "Wir bieten zuverlässige, blitzschnelle Lieferdienste, auf die sich unsere Kunden verlassen können. Für dringende Fälle ist eine Lieferung am selben Tag möglich, und wir legen großen Wert auf Pünktlichkeit. Unsere optimierten Logistikprozesse sorgen für minimale Verzögerungen und eine Echtzeit-Koordination. Ob ein einzelnes Paket oder eine vollständige Ladung – wir arbeiten schnell und effizient, um Ihren Zeitplan einzuhalten. Geschwindigkeit ist nicht nur ein Versprechen, sondern Teil unserer täglichen Arbeitsweise.",
   },
   {
     id: "2",
     icon: EuroIcon,
-    title: "Price",
+    title: "Preis",
     content:
-      "Our pricing is honest, transparent, and competitive within the industry. There are no hidden fees or confusing terms — what you see is what you pay. We believe in offering value without compromising on service quality. Whether you're a small business or a growing enterprise, our flexible rates are designed to scale with you. You can expect professional service without the premium markup.",
+      "Unsere Preise sind fair, transparent und wettbewerbsfähig innerhalb der Branche. Es gibt keine versteckten Gebühren oder komplizierten Bedingungen – was Sie sehen, zahlen Sie. Wir glauben daran, Wert zu bieten, ohne die Servicequalität zu beeinträchtigen. Egal, ob Sie ein kleines Unternehmen oder ein wachsendes Unternehmen sind, unsere flexiblen Tarife sind darauf ausgelegt, mit Ihnen zu wachsen. Sie können professionellen Service ohne Aufpreis erwarten.",
   },
   {
     id: "3",
     icon: GroupIcon,
     title: "Team",
     content:
-      "Our team combines strength, experience, and thoughtful execution. Every member is dedicated to going beyond simple delivery — we look ahead, solve problems, and keep communication clear. We believe in being hands-on and treating every shipment like it's our own. Working with us feels more like a partnership than a transaction. You'll always have a team that's committed, approachable, and dependable.",
+      "Unser Team vereint Stärke, Erfahrung und durchdachte Ausführung. Jedes Mitglied ist engagiert, über die reine Lieferung hinauszugehen – wir denken voraus, lösen Probleme und sorgen für klare Kommunikation. Wir glauben daran, praktisch zu arbeiten und jede Sendung so zu behandeln, als wäre sie unsere eigene. Die Zusammenarbeit mit uns fühlt sich eher wie eine Partnerschaft als wie eine Transaktion an. Sie haben immer ein Team, das engagiert, zugänglich und zuverlässig ist.",
   },
   {
     id: "4",
     icon: LocalShippingIcon,
-    title: "Delivery",
+    title: "Lieferung",
     content:
-      "From our headquarters in Munich, we deliver throughout the entire European Union. No matter the distance, your shipment is in capable hands from start to finish. We offer tailored solutions for both short-haul and long-distance deliveries. With tracking, careful handling, and flexible routing, your cargo arrives securely and on time. Wherever your route leads, we'll be right there with you.",
+      "Von unserem Hauptsitz in München aus liefern wir in die gesamte Europäische Union. Egal wie weit, Ihre Sendung ist vom Anfang bis zum Ende in sicheren Händen. Wir bieten maßgeschneiderte Lösungen für Kurzstrecken- und Langstreckenlieferungen. Mit Sendungsverfolgung, sorgfältiger Handhabung und flexibler Routenplanung kommt Ihre Fracht sicher und pünktlich an. Wohin auch immer Ihre Route führt – wir sind an Ihrer Seite.",
   },
 ];
+
 
 const AccordionItem = ({ item, isOpen, onClick }) => {
   const IconComponent = item.icon;

@@ -11,7 +11,6 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
     time: "",
   });
 
-  // Sync with formData when component mounts or when navigating back
   useEffect(() => {
     setData({
       fullName: formData.fullName || "",
@@ -24,11 +23,11 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
 
   const validate = (data) => {
     const newErrors = {};
-    if (!data.fullName.trim()) newErrors.fullName = "Full Name is required";
-    if (!data.phone.trim()) newErrors.phone = "Phone is required";
-    if (!data.email.trim()) newErrors.email = "Email is required";
-    if (!data.date.trim()) newErrors.date = "Date is required";
-    if (!data.time.trim()) newErrors.time = "Time is required";
+    if (!data.fullName.trim()) newErrors.fullName = "Vollständiger Name ist erforderlich";
+    if (!data.phone.trim()) newErrors.phone = "Telefonnummer ist erforderlich";
+    if (!data.email.trim()) newErrors.email = "E-Mail ist erforderlich";
+    if (!data.date.trim()) newErrors.date = "Datum ist erforderlich";
+    if (!data.time.trim()) newErrors.time = "Uhrzeit ist erforderlich";
     return newErrors;
   };
 
@@ -56,7 +55,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       <InputForm
         name="fullName"
         type="text"
-        placeholder="Full Name"
+        placeholder="Vollständiger Name"
         value={data.fullName}
         onChange={handleChange}
       />
@@ -65,7 +64,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       <InputForm
         name="phone"
         type="tel"
-        placeholder="Phone"
+        placeholder="Telefonnummer"
         value={data.phone}
         onChange={handleChange}
       />
@@ -74,7 +73,7 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
       <InputForm
         name="email"
         type="email"
-        placeholder="Email"
+        placeholder="E-Mail"
         value={data.email}
         onChange={handleChange}
       />
@@ -82,31 +81,31 @@ const StepOne = ({ onNext, updateFormData, formData }) => {
 
       <div className="mt-10 flex flex-col gap-5 place-self-center">
         <InputForm
-        label="Select Date"
-        name="date"
-        type="date"
-        placeholder="Date"
-        value={data.date}
-        onChange={handleChange}
-      />
-      {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+          label="Datum auswählen"
+          name="date"
+          type="date"
+          placeholder="Datum"
+          value={data.date}
+          onChange={handleChange}
+        />
+        {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
 
-      <InputForm
-        label="Select Time"
-        name="time"
-        type="time"
-        placeholder="Time"
-        value={data.time}
-        onChange={handleChange}
-      />
-      {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+        <InputForm
+          label="Uhrzeit auswählen"
+          name="time"
+          type="time"
+          placeholder="Uhrzeit"
+          value={data.time}
+          onChange={handleChange}
+        />
+        {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
       </div>
 
       <button
         type="submit"
         className="sequelFont-Bold !bg-primary text-black px-6 py-3 rounded-xl mt-4 self-end max-md:self-center !outline-none"
       >
-        Next
+        Weiter
       </button>
     </form>
   );

@@ -37,13 +37,13 @@ const Main = ({ introComplete }) => {
         <>
           <div>
             <TextReveal
-              className="text-8xl font-bold sequelFont max-md:text-5xl"
+              className="text-8xl font-bold sequelFont max-md:text-4xl"
               delay={0.05}
               duration={0.6}
               from="bottom"
               split="letter"
             >
-              Moving isn’t just
+              Umziehen ist nicht nur
             </TextReveal>
 
             <TextReveal
@@ -53,7 +53,7 @@ const Main = ({ introComplete }) => {
               from="bottom"
               split="letter"
             >
-              transport
+              Transport
             </TextReveal>
           </div>
 
@@ -70,8 +70,8 @@ const Main = ({ introComplete }) => {
             className="sequelFont ml-65 mt-9 border-2 border-black border-dashed pb-1 rounded-4xl px-5 max-md:ml-0 z-10"
           >
             <h2 className="text-5xl font-semibold py-3 max-md:text-3xl">
-              it’s a new{" "}
-              <span className="font-bold text-primary sequelFont-Bold">beginning</span>
+              es ist ein neuer{" "}
+              <span className="font-bold text-primary sequelFont-Bold">Anfang</span>
             </h2>
           </motion.div>
 
@@ -85,7 +85,7 @@ const Main = ({ introComplete }) => {
               className="w-10 h-10 text-primary transition-all duration-500 ease-in-out absolute left-5 top-1/2 -translate-y-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2"
             />
             <span className="transition-opacity duration-500 ease-in-out group-hover:opacity-0 ml-8">
-              Start Now
+              Jetzt starten
             </span>
           </motion.a>
         </>

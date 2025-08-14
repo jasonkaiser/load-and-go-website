@@ -14,6 +14,7 @@ import ServiceC from "./pages/ServiceC";
 import ServiceD from "./pages/ServiceD";
 import ServiceE from "./pages/ServiceE";
 import ServiceF from "./pages/ServiceF";
+import ServiceG from "./pages/ServiceG";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import RouteTransitionLoader from "./components/utils/RouteTransitions";
 import Intro from "./components/main/Intro";
@@ -22,9 +23,7 @@ function App() {
   const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
- 
     const introShown = sessionStorage.getItem("introShown");
-
     if (!introShown) {
       setShowIntro(true);
     }
@@ -32,7 +31,6 @@ function App() {
 
   const handleIntroComplete = () => {
     setShowIntro(false);
-   
     sessionStorage.setItem("introShown", "true");
   };
 
@@ -61,10 +59,10 @@ function App() {
         <Route path="/services/express-moves" element={<ServiceD />} />
         <Route path="/services/furniture-disposal" element={<ServiceE />} />
         <Route path="/services/personal-contact" element={<ServiceF />} />
+        <Route path="/services/cleaning-service" element={<ServiceG />} /> 
       </Routes>
       <Footer />
 
-   
       {showIntro && <Intro onComplete={handleIntroComplete} />}
     </Router>
   );

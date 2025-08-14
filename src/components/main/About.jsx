@@ -6,9 +6,6 @@ import AcordionData from './Special';
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
-
-
-
 const About = () => {
 
     const ref = useRef(null);
@@ -22,11 +19,11 @@ const About = () => {
         <section id='about' className="flex items-center justify-center flex-col mt-20 max-md:mt-0 scroll-mt-25">
             
             <h1 className="mb-4">
-                ── ABOUT US ──
+                ── ÜBER UNS ──
             </h1>
 
             <h1 className=" helveticaBold text-6xl text-black border-2 border-dashed border-amber-300 p-3 px-10 rounded-4xl max-md:text-3xl mb-35">
-                Who are we?
+                Wer sind wir?
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
@@ -47,20 +44,21 @@ const About = () => {
 
                                   <p className='text-gray-200 text-xs sequelFont-Bold flex gap-3 bg-black px-4 py-2 rounded-xl items-center border border-gray-200'>
                                   <MdLocationOn className="text-primary text-xl"/>
-                                  Munich   -    Germany
+                                  München   -    Deutschland
                                   </p>
                             </div>
                         </div>
                     </div>
                     <p className="helveticaRegular text-left text-[17px] max-md:text-center text-gray-600">
-                        At <strong className='text-black'>Load Go Transport</strong>, we believe that moving is more than just logistics it’s life in motion. 
-                        Every box carries more than just belongings; 
-                        it holds memories, milestones, and fresh starts. As a proud family-run business based in Munich, 
-                        we bring a personal touch to every move, no matter the size or distance. 
-                        Over the years, we’ve helped more than <strong className='text-black'>300 clients </strong> 
-                        across Germany and Europe transition smoothly into their new homes, offices, and lives.
-                         Whether it's a last-minute move, a long-distance relocation, or a simple furniture delivery, 
-                        we handle each journey with the same care and commitment we would offer our own family.</p>            
+                        Bei <strong className='text-black'>Load Go Transport</strong> glauben wir, dass Umziehen mehr ist als nur Logistik – es ist Leben in Bewegung. 
+                        Jeder Karton enthält mehr als nur Gegenstände; 
+                        er bewahrt Erinnerungen, Meilensteine und Neuanfänge. Als stolzes Familienunternehmen mit Sitz in München 
+                        verleihen wir jedem Umzug eine persönliche Note, egal wie groß oder klein, nah oder fern. 
+                        Im Laufe der Jahre haben wir mehr als <strong className='text-black'>300 Kunden</strong> 
+                        in ganz Deutschland und Europa dabei unterstützt, reibungslos in ihre neuen Wohnungen, Büros und Lebensabschnitte zu starten.
+                        Ob ein kurzfristiger Umzug, ein Fernumzug oder eine einfache Möbel­lieferung – 
+                        wir behandeln jede Fahrt mit derselben Sorgfalt und Hingabe, wie wir es für unsere eigene Familie tun würden.
+                    </p>            
                 </motion.div>
                 <div className="pointer-events-none absolute right-0 top-140 max-md:hidden h-screen w-[800px] z-[1] opacity-70 !bg-[radial-gradient(circle_at_right_center,_#fff700_0%,_#ffd700_0%,_rgba(255,255,255,0)_45%)]"/>
                 <div className='flex justify-center flex-col items-center gap-3'>
@@ -75,7 +73,7 @@ const About = () => {
                             <h1 className='text-primary helveticaBold text-7xl max-md:mt-10 '>
                                 300+ 
                             <p className='text-black text-2xl'>
-                                Satisfied Clients
+                                Zufriedene Kunden
                         </p></h1>
                     </motion.div>
 
@@ -85,18 +83,13 @@ const About = () => {
             </div>
             
                 <h1 className=" helveticaBold text-6xl text-black border-2 border-dashed border-amber-300 p-3 px-10 rounded-4xl max-md:text-3xl mb-35 mt-50 max-md:mt-20">
-                    What makes us special!
+                    Was uns besonders macht!
                 </h1>
                 <div className="pointer-events-none absolute left-0 top-380 max-md:hidden h-screen w-[800px] z-[1] opacity-70 !bg-[radial-gradient(circle_at_left_center,_#fff700_0%,_#ffd700_0%,_rgba(255,255,255,0)_45%)]"/>
 
         </section>
 
-
-
     )
-
-
-
 }
 
 export default About;
