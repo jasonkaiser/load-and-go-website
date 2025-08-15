@@ -79,7 +79,7 @@ const Footer = () => {
  
           <motion.div className="flex flex-wrap gap-6 text-gray-500" variants={fadeUp}>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/transportloadgo/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -88,7 +88,7 @@ const Footer = () => {
               <FaInstagram className="text-xl" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61579339652532"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -108,18 +108,12 @@ const Footer = () => {
           </motion.div>
 
        
-          {/*<motion.a
-            href="https://www.linkedin.com/in/jason-kaiser-1922022b8/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-yellow-500 transition-colors font-semibold ml-30 max-md:ml-0"
-            variants={fadeUp}
-          >
-            Website erstellt von <strong className="text-primary">Jason Kaiser</strong>
-          </motion.a> */}
+          <motion.span variants={fadeUp}>
+            (0) 176 22789921
+          </motion.span>
 
           <motion.span variants={fadeUp}>
-            Sulzweg 3 München 81827
+            St.-Veit-Straße 56a München 81673
           </motion.span>
         
           <motion.div className="text-center md:text-right" variants={fadeUp}>
