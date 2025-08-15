@@ -108,7 +108,7 @@ const Footer = () => {
           </motion.div>
 
        
-          <motion.a
+          {/*<motion.a
             href="https://www.linkedin.com/in/jason-kaiser-1922022b8/"
             target="_blank"
             rel="noopener noreferrer"
@@ -116,7 +116,7 @@ const Footer = () => {
             variants={fadeUp}
           >
             Website erstellt von <strong className="text-primary">Jason Kaiser</strong>
-          </motion.a>
+          </motion.a> */}
 
           <motion.span variants={fadeUp}>
             Sulzweg 3 München 81827

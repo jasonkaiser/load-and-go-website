@@ -15,6 +15,7 @@ import {
 } from "@tabler/icons-react";
 
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom"; 
 
 export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
   const [isLoading, setLoading] = useState(true);
@@ -41,8 +42,8 @@ export const Card = ({ card }) => {
   const Icon = card.icon;
 
   return (
-    <a
-      href={card.href}
+    <Link 
+      to={card.href}
       className="group relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-4xl bg-gray-100 md:h-[40rem] md:w-96 dark:bg-neutral-900 no-underline"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent will-change-transform transform-gpu" />
@@ -61,7 +62,7 @@ export const Card = ({ card }) => {
         alt={card.title}
         className="absolute inset-0 z-10 object-cover"
       />
-    </a>
+    </Link>
   );
 };
 
@@ -138,73 +139,71 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 };
 
 const Cards = forwardRef((props, ref) => {
-const cardData = [
-  {
-    title: "Kleine und große Umzüge",
-    category: "Transport",
-    src: "https://load-and-go-website.vercel.app/image1.jpg",
-    href: "/services/small-large-moves",
-    content:
-      "Effiziente Umzugsdienste für Wohnungen, Büros und alles dazwischen.",
-    icon: IconTruckLoading,
-  },
-  {
-    title: "Express-Umzüge",
-    category: "Fast Delivery",
-    src: "https://load-and-go-website.vercel.app/image2.jpg",
-    href: "/services/express-moves",
-    content:
-      "Schnell umziehen? Unsere Express-Option ist für Geschwindigkeit gebaut.",
-    icon: IconRocket,
-  },
-  {
-    title: "Verpackungsservice",
-    category: "Protection",
-    src: "https://load-and-go-website.vercel.app/image3.jpg",
-    href: "/services/packing-service",
-    content:
-      "Professionelles Verpacken, damit Ihre Gegenstände sicher ankommen.",
-    icon: IconBoxSeam,
-  },
-  {
-    title: "Möbelmontage & -demontage",
-    category: "Convenience",
-    src: "https://load-and-go-website.vercel.app/image4.jpg",
-    href: "/services/furniture-ad",
-    content:
-      "Wir kümmern uns um das schwere Heben – buchstäblich und strukturell.",
-    icon: IconTool,
-  },
-  {
-    title: "Entsorgung alter Möbel",
-    category: "Waste Removal",
-    src: "https://load-and-go-website.vercel.app/image5.jpg",
-    href: "/services/furniture-disposal",
-    content:
-      "Altes raus. Wir entsorgen nicht mehr benötigte Möbel verantwortungsbewusst.",
-    icon: IconTrashX,
-  },
-  {
-    title: "Persönlicher Kontakt",
-    category: "Support",
-    src: "https://load-and-go-website.vercel.app/image6.jpg",
-    href: "/services/personal-contact",
-    content:
-      "Sprechen Sie jederzeit mit einer realen Person, wenn Sie Hilfe benötigen.",
-    icon: IconUser,
-  },
-  {
-    title: "Reinigungsservice",
-    category: "Cleaning",
-    src: "https://load-and-go-website.vercel.app/image3.jpg",
-    href: "/services/cleaning-service",
-    content:
-      "Professionelle Reinigungsdienste für Wohnungen, Büros und Umzugsreinigungen.",
-    icon: GiBroom,
-  },
-];
-
-
+  const cardData = [
+    {
+      title: "Kleine und große Umzüge",
+      category: "Transport",
+      src: "https://load-and-go-website.vercel.app/image1.jpg",
+      href: "/services/small-large-moves",
+      content:
+        "Effiziente Umzugsdienste für Wohnungen, Büros und alles dazwischen.",
+      icon: IconTruckLoading,
+    },
+    {
+      title: "Express-Umzüge",
+      category: "Fast Delivery",
+      src: "https://load-and-go-website.vercel.app/image2.jpg",
+      href: "/services/express-moves",
+      content:
+        "Schnell umziehen? Unsere Express-Option ist für Geschwindigkeit gebaut.",
+      icon: IconRocket,
+    },
+    {
+      title: "Verpackungs\u00ADservice",
+      category: "Protection",
+      src: "https://load-and-go-website.vercel.app/image3.jpg",
+      href: "/services/packing-service",
+      content:
+        "Professionelles Verpacken, damit Ihre Gegenstände sicher ankommen.",
+      icon: IconBoxSeam,
+    },
+    {
+      title: "Möbelmontage & -demontage",
+      category: "Convenience",
+      src: "https://load-and-go-website.vercel.app/image4.jpg",
+      href: "/services/furniture-ad",
+      content:
+        "Wir kümmern uns um das schwere Heben – buchstäblich und strukturell.",
+      icon: IconTool,
+    },
+    {
+      title: "Entsorgung alter Möbel",
+      category: "Waste Removal",
+      src: "https://load-and-go-website.vercel.app/image5.jpg",
+      href: "/services/furniture-disposal",
+      content:
+        "Altes raus. Wir entsorgen nicht mehr benötigte Möbel verantwortungsbewusst.",
+      icon: IconTrashX,
+    },
+    {
+      title: "Persönlicher Kontakt",
+      category: "Support",
+      src: "https://load-and-go-website.vercel.app/image6.jpg",
+      href: "/services/personal-contact",
+      content:
+        "Sprechen Sie jederzeit mit einer realen Person, wenn Sie Hilfe benötigen.",
+      icon: IconUser,
+    },
+    {
+      title: "Reinigungs\u00ADservice",
+      category: "Cleaning",
+      src: "https://load-and-go-website.vercel.app/image3.jpg",
+      href: "/services/cleaning-service",
+      content:
+        "Professionelle Reinigungsdienste für Wohnungen, Büros und Umzugsreinigungen.",
+      icon: GiBroom,
+    },
+  ];
 
   return (
     <div ref={ref}>

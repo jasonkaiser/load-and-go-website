@@ -10,7 +10,7 @@ const ServiceE = () => {
 
         <section id='serviceE' className="flex items-center justify-center flex-col mt-20 max-md:mt-0 scroll-mt-25 gap-4">
                           
-            <h1 className="text-3xl font-bold mb-4 sequelFont-Bold mt-30">Disposal of old furniture</h1>
+            <h1 className="text-3xl font-bold mb-4 sequelFont-Bold mt-30">Entsorgung alter Möbel</h1>
             <MultiStepForm service="Disposal of old furniture"/>
  
         </section>
