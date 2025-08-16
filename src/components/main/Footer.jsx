@@ -109,7 +109,7 @@ const Footer = () => {
 
        
           <motion.span variants={fadeUp}>
-            (0) 176 22789921
+            (+49) 176 22789921
           </motion.span>
 
           <motion.span variants={fadeUp}>
@@ -117,7 +117,7 @@ const Footer = () => {
           </motion.span>
         
           <motion.div className="text-center md:text-right" variants={fadeUp}>
-            &copy; {new Date().getFullYear()} Load and Go. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} Load & Go. Alle Rechte vorbehalten.
           </motion.div>
         </motion.div>
       </footer>
