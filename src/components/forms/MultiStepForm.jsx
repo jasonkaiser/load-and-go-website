@@ -73,7 +73,7 @@ const MultiStepForm = ({ service }) => {
     console.log("Sende Daten an EmailJS:", fullData);
 
     emailjs
-      .send("service_qzajoow", "template_t3iw3jh", fullData, "Bl55RWTec1Qhzl1xv")
+      .send("service_gtwypqa", "template_t3iw3jh", fullData, "Bl55RWTec1Qhzl1xv")
       .then(() => {
         setMessage("✅ Ihre Anfrage wurde erfolgreich gesendet.");
         setIsSuccess(true);
