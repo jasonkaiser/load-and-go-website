@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import logo from "../../assets/logo2.png";
+import { Link } from "react-router-dom";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -107,7 +108,18 @@ const Footer = () => {
             </a>
           </motion.div>
 
-       
+          <Link to="/rulesA" className="text-yellow-500 hover:underline">
+            Datenschutzerklärung
+          </Link>
+
+          <Link to="/rulesB" className="text-yellow-500 hover:underline">
+            AGB
+          </Link>
+
+          <Link to="/rulesC" className="text-yellow-500 hover:underline">
+            Impressum
+          </Link>
+
           <motion.span variants={fadeUp}>
             (+49) 176 22789921
           </motion.span>

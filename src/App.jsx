@@ -15,6 +15,10 @@ import ServiceD from "./pages/ServiceD";
 import ServiceE from "./pages/ServiceE";
 import ServiceF from "./pages/ServiceF";
 import ServiceG from "./pages/ServiceG";
+import RuleA from "./pages/RuleA";
+import RuleB from "./pages/RuleB";
+import RuleC from "./pages/RuleC";
+
 import ScrollToTop from "./components/utils/ScrollToTop";
 import RouteTransitionLoader from "./components/utils/RouteTransitions";
 import Intro from "./components/main/Intro";
@@ -60,6 +64,11 @@ function App() {
         <Route path="/services/furniture-disposal" element={<ServiceE />} />
         <Route path="/services/personal-contact" element={<ServiceF />} />
         <Route path="/services/cleaning-service" element={<ServiceG />} /> 
+        <Route path="/rulesA" element={<RuleA/>}/>
+        <Route path="/rulesB" element={<RuleB />} />
+        <Route path="/rulesC" element={<RuleC />} />
+
+
       </Routes>
       <Footer />
 
