@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import InputForm from "../ui/InputForm"; 
+import InputForm from "../ui/inputform";
+
 
 const StepTwo = ({ updateFormData, onBack, onSubmit, formData }) => {
   const [data, setData] = useState({
