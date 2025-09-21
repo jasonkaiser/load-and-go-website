@@ -25,21 +25,21 @@ export default function Component() {
       />
       <img
         className="ring-background rounded-full ring-1 shadow-xl shadow-primary"
-        src="avatar-80-03.jpg"
+        src="avatar-3.jpg"
         width={50}
         height={50}
         alt="Avatar 02"
       />
       <img
         className="ring-background rounded-full ring-1 shadow-xl shadow-primary"
-        src="avatar-80-03.jpg"
+        src="avatar-2.jpg"
         width={50}
         height={50}
         alt="Avatar 03"
       />
       <img
         className="ring-background rounded-full ring-1 shadow-xl shadow-primary"
-        src="avatar-80-03.jpg"
+        src="avatar-1.jpg"
         width={50}
         height={50}
         alt="Avatar 04"

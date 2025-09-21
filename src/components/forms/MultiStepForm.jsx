@@ -1,7 +1,6 @@
 import { useState } from "react";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
-import StepThree from "./StepThree";
 import emailjs from "@emailjs/browser";
 import { AiFillCheckCircle } from "react-icons/ai";
 
@@ -19,58 +18,23 @@ const MultiStepForm = ({ service }) => {
     setFormData((prev) => ({ ...prev, ...data }));
   };
 
-  const handleSubmit = (finalStepData, options = {}) => {
+  const handleSubmit = (finalStepData) => {
     const rawData = { ...formData, ...finalStepData, service };
-
-    if (options.skipSubmit) {
-      setFormData(rawData);
-      return;
-    }
 
     const fullData = {
       fullName: rawData.fullName || "",
       phone: rawData.phone || "",
       email: rawData.email || "",
-      date: rawData.date || "",
-      time: rawData.time || "",
-
       country: rawData.country || "",
       city: rawData.city || "",
       zip: rawData.zip || "",
-      pickupAddress: rawData.pickupAddress || "",
-      dropoffAddress: rawData.dropoffAddress || "",
-      instructions: rawData.instructions || "",
-
+      address: rawData.address || "",
+      message: rawData.message || "",
       service: rawData.service || "",
-
-      itemType: rawData.itemType || "",
-      boxSizes: rawData.boxSizes || "",
-      pickupFloor: rawData.pickupFloor || "",
-      dropoffFloor: rawData.dropoffFloor || "",
-      specialItems: rawData.specialItems || "",
-
-      estimatedBoxes: rawData.estimatedBoxes || "",
-      packingMaterials: rawData.packingMaterials ? "Ja" : "Nein",
-      fragileItems: rawData.fragileItems || "",
-
-      quantity: rawData.quantity || "",
-      disassembly: rawData.disassembly ? "Ja" : "Nein",
-      toolsOrInstructions: rawData.toolsOrInstructions || "",
-
-      locationDistance: rawData.locationDistance || "",
-      urgency: rawData.urgency || "",
-      accessNotes: rawData.accessNotes || "",
-
-      hazardous: rawData.hazardous || "",
-      indoor: rawData.indoor ? "Ja" : "Nein",
-
-      notes: rawData.notes || "",
     };
 
     setIsSubmitting(true);
     setMessage("");
-
-    console.log("Sende Daten an EmailJS:", fullData);
 
     emailjs
       .send("service_qzajoow", "template_t3iw3jh", fullData, "Bl55RWTec1Qhzl1xv")
@@ -98,9 +62,10 @@ const MultiStepForm = ({ service }) => {
         </div>
       ) : (
         <div className="bg-gray-50 rounded-2xl border-2 border-dashed border-primary p-10">
+          {/* Step Indicator */}
           <div className="mb-6 text-lg font-semibold">
             <div className="flex justify-between items-center mb-10 max-md:flex-col max-md:items-start max-md:gap-10">
-              {["Ihre Daten", "Adressinformationen", "Servicefragen"].map((label, index) => {
+              {["Ihre Daten", "Ihre Anfrage"].map((label, index) => {
                 const isActive = step === index + 1;
                 const isCompleted = step > index + 1;
 
@@ -115,7 +80,7 @@ const MultiStepForm = ({ service }) => {
                     <div className={`text-sm ${isActive ? "text-primary font-medium" : "text-gray-400"}`}>
                       {label}
                     </div>
-                    {index < 2 && (
+                    {index < 1 && (
                       <div className="flex-1 h-1 bg-gray-300 mx-2 relative">
                         <div
                           className={`absolute top-0 left-0 h-1 transition-all duration-300 ${
@@ -130,15 +95,12 @@ const MultiStepForm = ({ service }) => {
             </div>
           </div>
 
+          {/* Steps */}
           {step === 1 && <StepOne updateFormData={updateFormData} onNext={nextStep} formData={formData} />}
-          {step === 2 && <StepTwo updateFormData={updateFormData} onNext={nextStep} onBack={prevStep} formData={formData} />}
-          {step === 3 && (
-            <StepThree service={service} onBack={prevStep} onSubmit={handleSubmit} formData={formData} />
-          )}
+          {step === 2 && <StepTwo updateFormData={updateFormData} onBack={prevStep} onSubmit={handleSubmit} formData={formData} />}
 
-          {isSubmitting && (
-            <p className="text-center text-gray-600 mt-4">Anfrage wird gesendet...</p>
-          )}
+          {/* Status */}
+          {isSubmitting && <p className="text-center text-gray-600 mt-4">Anfrage wird gesendet...</p>}
           {message && (
             <p className={`text-center mt-4 font-medium ${message.includes("✅") ? "text-black" : "text-red-500"}`}>
               {message}

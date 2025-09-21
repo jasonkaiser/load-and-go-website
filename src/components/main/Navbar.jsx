@@ -226,9 +226,9 @@ export default function Header() {
             <a
               href="#services"
               className="text-red-500"
-              onClick={(e) => handleScrollLink(e, "services")}
+              onClick={(e) => handleScrollLink(e, "contact")}
             >
-              Jetzt starten
+              Kontakt
             </a>
           </Button>
         </div>

@@ -1,113 +1,123 @@
 import { useState, useEffect } from "react";
-import InputForm from "../ui/inputform";
+import InputForm from "../ui/InputForm";
 
-const StepOne = ({ onNext, updateFormData, formData }) => {
-  const [errors, setErrors] = useState({});
+const StepOne = ({ updateFormData, onNext, formData }) => {
   const [data, setData] = useState({
     fullName: "",
     phone: "",
     email: "",
-    date: "",
-    time: "",
+    country: "",
+    city: "",
+    zip: "",
+    address: "",
   });
 
-  useEffect(() => {
-    setData({
-      fullName: formData.fullName || "",
-      phone: formData.phone || "",
-      email: formData.email || "",
-      date: formData.date || "",
-      time: formData.time || "",
-    });
-  }, [formData]);
+  const [errors, setErrors] = useState({});
 
-  const validate = (data) => {
-    const newErrors = {};
-    if (!data.fullName.trim()) newErrors.fullName = "Vollständiger Name ist erforderlich";
-    if (!data.phone.trim()) newErrors.phone = "Telefonnummer ist erforderlich";
-    if (!data.email.trim()) newErrors.email = "E-Mail ist erforderlich";
-    if (!data.date.trim()) newErrors.date = "Datum ist erforderlich";
-    if (!data.time.trim()) newErrors.time = "Uhrzeit ist erforderlich";
-    return newErrors;
-  };
+  useEffect(() => {
+    if (formData) setData((prev) => ({ ...prev, ...formData }));
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error on change
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validate = () => {
+    const newErrors = {};
 
-    const validationErrors = validate(data);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+    if (!data.fullName.trim()) newErrors.fullName = "Bitte geben Sie Ihren Namen ein.";
+    if (!data.phone.trim()) newErrors.phone = "Bitte geben Sie Ihre Telefonnummer ein.";
+    if (!data.email.trim()) {
+      newErrors.email = "Bitte geben Sie Ihre E-Mail ein.";
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
+      newErrors.email = "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
     }
 
-    setErrors({});
-    updateFormData(data);
-    onNext();
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (validate()) {
+      updateFormData(data);
+      onNext();
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-md:items-center">
+    <div className="space-y-6">
+      <h2 className="text-xl font-semibold mb-4">Ihre Daten</h2>
+
       <InputForm
         name="fullName"
         type="text"
-        placeholder="Vollständiger Name"
         value={data.fullName}
         onChange={handleChange}
+        placeholder="Vollständiger Name"
       />
       {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
 
       <InputForm
         name="phone"
-        type="tel"
-        placeholder="Telefonnummer"
+        type="text"
         value={data.phone}
         onChange={handleChange}
+        placeholder="Telefonnummer"
       />
       {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
 
       <InputForm
         name="email"
         type="email"
-        placeholder="E-Mail"
         value={data.email}
         onChange={handleChange}
+        placeholder="E-Mail"
       />
       {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-      <div className="mt-10 flex flex-col gap-5 place-self-center">
-        <InputForm
-          label="Datum auswählen"
-          name="date"
-          type="date"
-          placeholder="Datum"
-          value={data.date}
-          onChange={handleChange}
-        />
-        {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+      <InputForm
+        name="country"
+        type="text"
+        value={data.country}
+        onChange={handleChange}
+        placeholder="Land"
+      />
 
-        <InputForm
-          label="Uhrzeit auswählen"
-          name="time"
-          type="time"
-          placeholder="Uhrzeit"
-          value={data.time}
-          onChange={handleChange}
-        />
-        {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+      <InputForm
+        name="city"
+        type="text"
+        value={data.city}
+        onChange={handleChange}
+        placeholder="Stadt"
+      />
+
+      <InputForm
+        name="zip"
+        type="text"
+        value={data.zip}
+        onChange={handleChange}
+        placeholder="PLZ"
+      />
+
+      <InputForm
+        name="address"
+        type="text"
+        value={data.address}
+        onChange={handleChange}
+        placeholder="Adresse"
+      />
+
+      <div className="flex justify-end">
+        <button
+          onClick={handleNext}
+          className="!bg-primary !text-white !font-semibold !px-8 !py-3 !rounded-xl hover:!bg-yellow-400 transition-colors"
+        >
+          Weiter
+        </button>
       </div>
-
-      <button
-        type="submit"
-        className="sequelFont-Bold !bg-primary text-black px-6 py-3 rounded-xl mt-4 self-end max-md:self-center !outline-none"
-      >
-        Weiter
-      </button>
-    </form>
+    </div>
   );
 };
 

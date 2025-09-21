@@ -1,130 +1,55 @@
 import { useState, useEffect } from "react";
-import InputForm from "../ui/inputform";
+import InputForm from "../ui/InputForm"; 
 
-const StepTwo = ({ onNext, onBack, updateFormData, formData }) => {
-  const [localData, setLocalData] = useState({
-    country: "",
-    city: "",
-    zip: "",
-    pickupAddress: "",
-    dropoffAddress: "",
-    instructions: "",
+const StepTwo = ({ updateFormData, onBack, onSubmit, formData }) => {
+  const [data, setData] = useState({
+    message: "",
   });
 
-  const [errors, setErrors] = useState({});
-
   useEffect(() => {
-    setLocalData({
-      country: formData.country || "",
-      city: formData.city || "",
-      zip: formData.zip || "",
-      pickupAddress: formData.pickupAddress || "",
-      dropoffAddress: formData.dropoffAddress || "",
-      instructions: formData.instructions || "",
-    });
+    if (formData) setData((prev) => ({ ...prev, ...formData }));
   }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLocalData((prev) => ({ ...prev, [name]: value }));
+    setData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!localData.country.trim()) newErrors.country = "Land ist erforderlich";
-    if (!localData.city.trim()) newErrors.city = "Stadt ist erforderlich";
-    if (!localData.zip.trim()) newErrors.zip = "Postleitzahl ist erforderlich";
-    if (!localData.pickupAddress.trim()) newErrors.pickupAddress = "Abholadresse ist erforderlich";
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    setErrors({});
-    updateFormData(localData);
-    onNext();
+  const handleSubmit = () => {
+    updateFormData(data);
+    onSubmit(data);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-md:items-center">
-      <InputForm
-        name="country"
-        type="text"
-        placeholder="Land"
-        value={localData.country}
-        onChange={handleChange}
-      />
-      {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>}
+    <div className="space-y-6">
+      <h2 className="text-xl font-semibold mb-4">Ihre Anfrage</h2>
 
       <InputForm
-        name="city"
-        type="text"
-        placeholder="Stadt"
-        value={localData.city}
+        name="message"
+        type="textarea"
+        value={data.message}
         onChange={handleChange}
-      />
-      {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
-
-      <InputForm
-        name="zip"
-        type="text"
-        placeholder="Postleitzahl"
-        value={localData.zip}
-        onChange={handleChange}
-      />
-      {errors.zip && <p className="text-red-500 text-sm">{errors.zip}</p>}
-
-      <InputForm
-        name="pickupAddress"
-        type="text"
-        placeholder="Abholadresse"
-        value={localData.pickupAddress}
-        onChange={handleChange}
-      />
-      {errors.pickupAddress && <p className="text-red-500 text-sm">{errors.pickupAddress}</p>}
-
-      <InputForm
-        name="dropoffAddress"
-        type="text"
-        placeholder="Lieferadresse (optional)"
-        value={localData.dropoffAddress}
-        onChange={handleChange}
+        rows={8} // bigger box for detailed description
+        placeholder="Beschreiben Sie genau, was Sie von diesem Service wünschen..."
+        className="!bg-black !text-gray-200 placeholder:!text-gray-400 !rounded-2xl !p-4 !outline-none border-2 border-transparent focus:!border-primary focus:!ring-4 focus:!ring-primary/40 transition-all"
       />
 
-      <textarea
-        name="instructions"
-        placeholder="Besondere Anweisungen (optional)"
-        className="w-full p-4 !outline-none rounded-2xl bg-black text-gray-200 placeholder:text-gray-400 border-2 border-transparent focus:border-primary focus:ring-4 focus:ring-primary/40 transition"
-        rows="4"
-        value={localData.instructions}
-        onChange={handleChange}
-      />
-
-      <div className="flex justify-between gap-20 mt-4">
+      <div className="flex justify-between mt-4">
         <button
-          type="button"
-          onClick={() => {
-            updateFormData(localData); 
-            onBack();
-          }}
-          className="sequelFont-Bold text-sm text-white !bg-gray-300 px-6 py-3 rounded-xl !outline-none"
+          onClick={onBack}
+          className="!bg-gray-200 !text-white !px-8 !py-3 !rounded-xl hover:!bg-gray-300 transition-colors"
         >
           Zurück
         </button>
+
         <button
-          type="submit"
-          className="sequelFont-Bold !bg-primary text-black px-6 py-3 rounded-xl !outline-none"
+          onClick={handleSubmit}
+          className="!bg-primary !text-black !font-semibold !px-8 !py-3 !rounded-xl hover:!bg-yellow-400 transition-colors"
         >
-          Weiter
+          Anfrage senden
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 

@@ -70,10 +70,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="flex items-center justify-center flex-col max-md:mt-0 scroll-mt-25">
-      <h1 className="mb-4 mt-20">── KONTAKT ──</h1>
-      <h1 className=" helveticaBold text-6xl text-black border-2 border-dashed border-primary p-3 px-10 rounded-4xl max-md:text-3xl mb-15">
+      <h3 className="mb-4 mt-20">── KONTAKT ──</h3>
+      <h2 className=" helveticaBold text-6xl text-black border-2 border-dashed border-primary p-3 px-10 rounded-4xl max-md:text-3xl mb-15">
         Sprich mit uns!
-      </h1>
+      </h2>
 
       <div className="pointer-events-none absolute left-0 top-880 max-md:hidden h-screen w-[800px] z-[1] opacity-70 !bg-[radial-gradient(circle_at_left_center,_#fff700_0%,_#ffd700_0%,_rgba(255,255,255,0)_45%)]" />
 

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 import logo from "../../assets/logo2.png";
 import { Link } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const Footer = () => {
               { label: "Startseite", href: "#home" },
               { label: "Über uns", href: "#about" },
               { label: "Dienstleistungen", href: "#services" },
-              { label: "Kontakt", href: "#contact" }
+              { label: "Kontakt", href: "#contact" },
             ].map((item) => (
               <motion.a
                 key={item.label}
@@ -77,7 +77,7 @@ const Footer = () => {
             visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
           }}
         >
- 
+          {/* Social + Contact Icons */}
           <motion.div className="flex flex-wrap gap-6 text-gray-500" variants={fadeUp}>
             <a
               href="https://www.instagram.com/transportloadgo/"
@@ -89,25 +89,25 @@ const Footer = () => {
               <FaInstagram className="text-xl" />
             </a>
             <a
-              href="https://www.facebook.com/profile.php?id=61579339652532"
+              href="https://wa.me/4917622789921"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook"
+              aria-label="WhatsApp"
               className="hover:text-yellow-500 transition-colors"
             >
-              <FaFacebook className="text-xl" />
+              <FaWhatsapp className="text-xl" />
             </a>
+           
             <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              href="mailto:Info@load-go-transport.com"
+              aria-label="E-Mail"
               className="hover:text-yellow-500 transition-colors"
             >
-              <FaLinkedin className="text-xl" />
+              <FaEnvelope className="text-xl" />
             </a>
           </motion.div>
 
+          {/* Links */}
           <Link to="/rulesA" className="text-yellow-500 hover:underline">
             Datenschutzerklärung
           </Link>
@@ -120,14 +120,12 @@ const Footer = () => {
             Impressum
           </Link>
 
+          {/* Address */}
           <motion.span variants={fadeUp}>
-            (+49) 176 22789921
+            Sulzweg 3 81827 München
           </motion.span>
 
-          <motion.span variants={fadeUp}>
-            St.-Veit-Straße 56a München 81673
-          </motion.span>
-        
+          {/* Copyright */}
           <motion.div className="text-center md:text-right" variants={fadeUp}>
             &copy; {new Date().getFullYear()} Load & Go. Alle Rechte vorbehalten.
           </motion.div>
