@@ -1,5 +1,5 @@
 const InputForm = ({ placeholder, type, width = "w-full", name, value, onChange, label, rows = 4 }) => {
-  const isDateOrTime = type === "date" || type === "time";
+  const isDateOrTime = type === "date" || type === "time"; //
 
   const containerClasses = isDateOrTime
     ? "relative w-full max-w-xs md:max-w-full md:w-full max-md:block max-md:text-left max-md:ml-0"
