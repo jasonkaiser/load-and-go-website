@@ -80,6 +80,11 @@ textarea:-webkit-autofill {
 }
 
 
+.cc-window {
+  z-index: 99999 !important;
+}
+
+
 a {
   font-weight: 500;
   color: #000000;

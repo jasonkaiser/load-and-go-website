@@ -23,6 +23,11 @@ import ScrollToTop from "./components/utils/ScrollToTop";
 import RouteTransitionLoader from "./components/utils/RouteTransitions";
 import Intro from "./components/main/Intro";
 
+
+import CookieBanner from "./components/utils/CookieBanner";
+
+
+
 function App() {
   const [showIntro, setShowIntro] = useState(false);
 
@@ -39,10 +44,14 @@ function App() {
   };
 
   return (
+    <>
+    <CookieBanner />
     <Router>
+   
       <ScrollToTop />
       <RouteTransitionLoader />
 
+  
       <Navbar />
       <Routes>
         <Route
@@ -63,17 +72,19 @@ function App() {
         <Route path="/services/express-moves" element={<ServiceD />} />
         <Route path="/services/furniture-disposal" element={<ServiceE />} />
         <Route path="/services/personal-contact" element={<ServiceF />} />
-        <Route path="/services/cleaning-service" element={<ServiceG />} /> 
-        <Route path="/rulesA" element={<RuleA/>}/>
+        <Route path="/services/cleaning-service" element={<ServiceG />} />
+        <Route path="/rulesA" element={<RuleA />} />
         <Route path="/rulesB" element={<RuleB />} />
         <Route path="/rulesC" element={<RuleC />} />
-
-
       </Routes>
+
+   
       <Footer />
+
 
       {showIntro && <Intro onComplete={handleIntroComplete} />}
     </Router>
+    </>
   );
 }
 

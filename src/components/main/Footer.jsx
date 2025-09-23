@@ -3,6 +3,8 @@ import { motion, useInView } from "framer-motion";
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 import logo from "../../assets/logo2.png";
 import { Link } from "react-router-dom";
+import CookieBanner from "../utils/CookieBanner";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -20,6 +22,8 @@ const fadeUp = {
 const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
 
   return (
     <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen mt-50 mb-[-30px]">
@@ -77,7 +81,7 @@ const Footer = () => {
             visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
           }}
         >
-          {/* Social + Contact Icons */}
+         
           <motion.div className="flex flex-wrap gap-6 text-gray-500" variants={fadeUp}>
             <a
               href="https://www.instagram.com/transportloadgo/"
@@ -97,7 +101,7 @@ const Footer = () => {
             >
               <FaWhatsapp className="text-xl" />
             </a>
-           
+
             <a
               href="mailto:Info@load-go-transport.com"
               aria-label="E-Mail"
@@ -107,7 +111,6 @@ const Footer = () => {
             </a>
           </motion.div>
 
-          {/* Links */}
           <Link to="/rulesA" className="text-yellow-500 hover:underline">
             Datenschutzerklärung
           </Link>
@@ -120,12 +123,11 @@ const Footer = () => {
             Impressum
           </Link>
 
-          {/* Address */}
           <motion.span variants={fadeUp}>
             Sulzweg 3 81827 München
           </motion.span>
 
-          {/* Copyright */}
+  
           <motion.div className="text-center md:text-right" variants={fadeUp}>
             &copy; {new Date().getFullYear()} Load & Go. Alle Rechte vorbehalten.
           </motion.div>
