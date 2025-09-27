@@ -22,11 +22,8 @@ import RuleC from "./pages/RuleC";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import RouteTransitionLoader from "./components/utils/RouteTransitions";
 import Intro from "./components/main/Intro";
-
-
 import CookieBanner from "./components/utils/CookieBanner";
-
-
+import SEO from "./components/utils/SEO";
 
 function App() {
   const [showIntro, setShowIntro] = useState(false);
@@ -45,45 +42,187 @@ function App() {
 
   return (
     <>
-    <CookieBanner />
-    <Router>
-   
-      <ScrollToTop />
-      <RouteTransitionLoader />
+      <CookieBanner />
+      <Router>
+        <ScrollToTop />
+        <RouteTransitionLoader />
+        <Navbar />
+        
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <SEO
+                  title="Load & Go - Professionelle Umzugsservice & Transport in Deutschland"
+                  description="Load & Go bietet professionelle Umzugsdienstleistungen, Transporte, Verpackungsservice und Möbelentsorgung. Ihr zuverlässiger Partner für einen stressfreien Umzug in Deutschland."
+                  canonical="https://loadandgo.de/"
+                  keywords="Umzug, Transport, Umzugsservice, Möbeltransport, Verpackungsservice, Umzugsunternehmen, Deutschland, professionell"
+                />
+                <Main introComplete={!showIntro} />
+                <About />
+                <Special />
+                <Services />
+                <Contact />
+              </>
+            }
+          />
+          
+          <Route 
+            path="/services/small-large-moves" 
+            element={
+              <>
+                <SEO
+                  title="Kleine & Große Umzüge - Load & Go Umzugsservice"
+                  description="Professionelle kleine und große Umzüge von Load & Go. Zuverlässiger Service für Privat- und Geschäftskunden in ganz Deutschland."
+                  canonical="https://loadandgo.de/services/small-large-moves"
+                  keywords="kleine Umzüge, große Umzüge, Privatumzug, Geschäftsumzug, Load & Go"
+                />
+                <ServiceA />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/packing-service" 
+            element={
+              <>
+                <SEO
+                  title="Professioneller Verpackungsservice - Load & Go"
+                  description="Sicherer Verpackungsservice von Load & Go. Professionelles Verpacken Ihrer Gegenstände für den Transport."
+                  canonical="https://loadandgo.de/services/packing-service"
+                  keywords="Verpackungsservice, professionelles Verpacken, Umzugsverpackung, Load & Go"
+                />
+                <ServiceB />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/furniture-ad" 
+            element={
+              <>
+                <SEO
+                  title="Möbeltransport & Aufbau - Load & Go Service"
+                  description="Professioneller Möbeltransport und Aufbauservice von Load & Go. Sicherer Transport und fachgerechter Aufbau Ihrer Möbel."
+                  canonical="https://loadandgo.de/services/furniture-ad"
+                  keywords="Möbeltransport, Möbelaufbau, Möbelservice, Load & Go Transport"
+                />
+                <ServiceC />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/express-moves" 
+            element={
+              <>
+                <SEO
+                  title="Express Umzüge - Schneller Umzugsservice Load & Go"
+                  description="Express Umzüge von Load & Go. Schneller und zuverlässiger Umzugsservice für eilige Termine in Deutschland."
+                  canonical="https://loadandgo.de/services/express-moves"
+                  keywords="Express Umzug, schneller Umzug, Eilumzug, Load & Go Express"
+                />
+                <ServiceD />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/furniture-disposal" 
+            element={
+              <>
+                <SEO
+                  title="Möbelentsorgung Service - Load & Go"
+                  description="Professionelle Möbelentsorgung von Load & Go. Umweltfreundliche Entsorgung Ihrer alten Möbel und Gegenstände."
+                  canonical="https://loadandgo.de/services/furniture-disposal"
+                  keywords="Möbelentsorgung, Entrümpelung, Entsorgungsservice, Load & Go"
+                />
+                <ServiceE />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/personal-contact" 
+            element={
+              <>
+                <SEO
+                  title="Persönlicher Kontakt - Load & Go Beratung"
+                  description="Persönliche Beratung und Kontakt bei Load & Go. Individuelle Umzugslösungen für Ihre Bedürfnisse."
+                  canonical="https://loadandgo.de/services/personal-contact"
+                  keywords="persönliche Beratung, Umzugsberatung, Kontakt Load & Go"
+                />
+                <ServiceF />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/services/cleaning-service" 
+            element={
+              <>
+                <SEO
+                  title="Reinigungsservice - Load & Go Umzugsreinigung"
+                  description="Professioneller Reinigungsservice von Load & Go. Umzugsreinigung für alte und neue Wohnung."
+                  canonical="https://loadandgo.de/services/cleaning-service"
+                  keywords="Reinigungsservice, Umzugsreinigung, Endreinigung, Load & Go"
+                />
+                <ServiceG />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/rulesA" 
+            element={
+              <>
+                <SEO
+                  title="Geschäftsbedingungen - Load & Go"
+                  description="Allgemeine Geschäftsbedingungen von Load & Go Umzugsservice."
+                  canonical="https://loadandgo.de/rulesA"
+                  robots="noindex, follow"
+                />
+                <RuleA />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/rulesB" 
+            element={
+              <>
+                <SEO
+                  title="Datenschutz - Load & Go"
+                  description="Datenschutzerklärung von Load & Go Umzugsservice."
+                  canonical="https://loadandgo.de/rulesB"
+                  robots="noindex, follow"
+                />
+                <RuleB />
+              </>
+            } 
+          />
+          
+          <Route 
+            path="/rulesC" 
+            element={
+              <>
+                <SEO
+                  title="Impressum - Load & Go"
+                  description="Impressum von Load & Go Umzugsservice."
+                  canonical="https://loadandgo.de/rulesC"
+                  robots="noindex, follow"
+                />
+                <RuleC />
+              </>
+            } 
+          />
+        </Routes>
 
-  
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Main introComplete={!showIntro} />
-              <About />
-              <Special />
-              <Services />
-              <Contact />
-            </>
-          }
-        />
-        <Route path="/services/small-large-moves" element={<ServiceA />} />
-        <Route path="/services/packing-service" element={<ServiceB />} />
-        <Route path="/services/furniture-ad" element={<ServiceC />} />
-        <Route path="/services/express-moves" element={<ServiceD />} />
-        <Route path="/services/furniture-disposal" element={<ServiceE />} />
-        <Route path="/services/personal-contact" element={<ServiceF />} />
-        <Route path="/services/cleaning-service" element={<ServiceG />} />
-        <Route path="/rulesA" element={<RuleA />} />
-        <Route path="/rulesB" element={<RuleB />} />
-        <Route path="/rulesC" element={<RuleC />} />
-      </Routes>
+        <Footer />
 
-   
-      <Footer />
-
-
-      {showIntro && <Intro onComplete={handleIntroComplete} />}
-    </Router>
+        {showIntro && <Intro onComplete={handleIntroComplete} />}
+      </Router>
     </>
   );
 }
