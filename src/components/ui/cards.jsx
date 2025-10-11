@@ -143,7 +143,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Kleine und große Umzüge",
       category: "Transport",
-      src: "https://load-and-go-website.vercel.app/image1.jpg",
+      src: "./image1.jpg",
       href: "/services/small-large-moves",
       content:
         "Effiziente Umzugsdienste für Wohnungen, Büros und alles dazwischen.",
@@ -152,7 +152,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Express-Umzüge",
       category: "Fast Delivery",
-      src: "https://load-and-go-website.vercel.app/image2.jpg",
+      src: "./image2.jpg",
       href: "/services/express-moves",
       content:
         "Schnell umziehen? Unsere Express-Option ist für Geschwindigkeit gebaut.",
@@ -161,7 +161,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Verpackungs\u00ADservice",
       category: "Protection",
-      src: "https://load-and-go-website.vercel.app/image3.jpg",
+      src: "./image3.jpg",
       href: "/services/packing-service",
       content:
         "Professionelles Verpacken, damit Ihre Gegenstände sicher ankommen.",
@@ -170,7 +170,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Möbelmontage & -demontage",
       category: "Convenience",
-      src: "https://load-and-go-website.vercel.app/image4.jpg",
+      src: "./image4.jpg",
       href: "/services/furniture-ad",
       content:
         "Wir kümmern uns um das schwere Heben – buchstäblich und strukturell.",
@@ -179,7 +179,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Entsorgung alter Möbel",
       category: "Waste Removal",
-      src: "https://load-and-go-website.vercel.app/image5.jpg",
+      src: "./image5.jpg",
       href: "/services/furniture-disposal",
       content:
         "Altes raus. Wir entsorgen nicht mehr benötigte Möbel verantwortungsbewusst.",
@@ -188,7 +188,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Persönlicher Kontakt",
       category: "Support",
-      src: "https://load-and-go-website.vercel.app/image6.jpg",
+      src: "./image6.jpg",
       href: "/services/personal-contact",
       content:
         "Sprechen Sie jederzeit mit einer realen Person, wenn Sie Hilfe benötigen.",
@@ -197,7 +197,7 @@ const Cards = forwardRef((props, ref) => {
     {
       title: "Reinigungs\u00ADservice",
       category: "Cleaning",
-      src: "https://load-and-go-website.vercel.app/image3.jpg",
+      src: "./image3.jpg",
       href: "/services/cleaning-service",
       content:
         "Professionelle Reinigungsdienste für Wohnungen, Büros und Umzugsreinigungen.",

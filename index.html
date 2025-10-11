@@ -37,7 +37,7 @@
       "@type": "MovingCompany",
       "name": "Load & Go",
       "description": "Professionelle Umzugsdienstleistungen, Transporte, Verpackungsservice und Möbelentsorgung",
-      "url": "https://loadandgo.de",
+      "url": "https://load-go-transport.com",
       "logo": "https://load-go-transport.com/logo2.png",
       "address": {
         "@type": "PostalAddress",
@@ -68,7 +68,6 @@
     }
     </script>
     
-    <link rel="preload" href="/src/main.jsx" as="script" />
     
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -78,41 +77,52 @@
     
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
-      script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net;
+      script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com;
       style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com;
-      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://api.emailjs.com;
-      img-src 'self' data: https://load-and-go-website.vercel.app https://www.googleadservices.com;
+      connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://api.emailjs.com;
+      img-src 'self' data: https://load-go-transport.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com;
       font-src 'self' https://fonts.gstatic.com;
-      frame-src 'self' https://www.googletagmanager.com https://www.googleadservices.com;
+      frame-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://bid.g.doubleclick.net https://td.doubleclick.net;
     ">
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17591506673"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17591506673');
+    </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17591506673"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17591506673');
-</script>
-
-
-</head>
+  </head>
   <body>
     <noscript>
       <div style="text-align: center; padding: 50px; font-family: system-ui;">
         <h1>Load & Go - Professionelle Umzugsservice</h1>
         <p>Für die beste Erfahrung aktivieren Sie bitte JavaScript in Ihrem Browser.</p>
         <p>Wir bieten professionelle Umzugsdienstleistungen, Transporte und Verpackungsservice.</p>
+        <h2>Unsere Dienstleistungen:</h2>
+        <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+          <li>Privatumzüge und Firmenumzüge</li>
+          <li>Möbeltransport deutschlandweit</li>
+          <li>Professioneller Verpackungsservice</li>
+          <li>Möbelmontage und -demontage</li>
+          <li>Entrümpelung und Entsorgung</li>
+        </ul>
+        <p><strong>Kontakt:</strong> Rufen Sie uns an für ein kostenloses Angebot!</p>
       </div>
     </noscript>
     
     <div id="root">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: system-ui;">
-        <div style="text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui; padding: 20px;">
+        <div style="text-align: center; max-width: 800px;">
           <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #000;">Load & Go</h1>
-          <p style="font-size: 1.2rem; color: #666;">Ihr professioneller Umzugsservice</p>
+          <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Ihr professioneller Umzugsservice in Deutschland</p>
+          
+          <div style="text-align: left; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Unsere Leistungen</h2>
+            <p>Professionelle Umzüge für Privat- und Geschäftskunden, zuverlässiger Transport, Verpackungsservice und Möbelentsorgung.</p>
+          </div>
+          
           <div style="margin-top: 2rem;">
             <div style="width: 40px; height: 40px; border: 4px solid #fff700; border-top: 4px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
           </div>
@@ -120,32 +130,12 @@
       </div>
     </div>
 
- 
-    <link 
-      rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/cookieconsent@4/build/cookieconsent.min.css"
-      integrity="sha384-6iYDyQZuuNT7DY25give2environnement/P6CPX/5o2/sK6kAmx9zDv/v6QHKqQhVyR+XJh"
-      crossorigin="anonymous" 
-    />
-    <script 
-      src="https://cdn.jsdelivr.net/npm/cookieconsent@4/build/cookieconsent.min.js"
-      integrity="sha384-Yx3YMF/Zk7dWZgZf7vDrx7Z8X+jXlQwZpH2jEfzZ5VJCx7z4W4Z+fQ1nFxY5m8v"
-      crossorigin="anonymous">
-    </script>
-
-
-    <script>
-
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `;
-      document.head.appendChild(style);
-    </script>
-
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
 
     <script type="module" src="/src/main.jsx"></script>
   </body>

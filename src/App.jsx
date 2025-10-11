@@ -29,15 +29,19 @@ function App() {
   const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
-    const introShown = sessionStorage.getItem("introShown");
-    if (!introShown) {
-      setShowIntro(true);
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      const introShown = sessionStorage.getItem("introShown");
+      if (!introShown) {
+        setShowIntro(true);
+      }
     }
   }, []);
 
   const handleIntroComplete = () => {
     setShowIntro(false);
-    sessionStorage.setItem("introShown", "true");
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      sessionStorage.setItem("introShown", "true");
+    }
   };
 
   return (
@@ -56,7 +60,7 @@ function App() {
                 <SEO
                   title="Load & Go - Professionelle Umzugsservice & Transport in Deutschland"
                   description="Load & Go bietet professionelle Umzugsdienstleistungen, Transporte, Verpackungsservice und Möbelentsorgung. Ihr zuverlässiger Partner für einen stressfreien Umzug in Deutschland."
-                  canonical="https://loadandgo.de/"
+                  canonical="https://load-go-transport.com/"
                   keywords="Umzug, Transport, Umzugsservice, Möbeltransport, Verpackungsservice, Umzugsunternehmen, Deutschland, professionell"
                 />
                 <Main introComplete={!showIntro} />
@@ -75,7 +79,7 @@ function App() {
                 <SEO
                   title="Kleine & Große Umzüge - Load & Go Umzugsservice"
                   description="Professionelle kleine und große Umzüge von Load & Go. Zuverlässiger Service für Privat- und Geschäftskunden in ganz Deutschland."
-                  canonical="https://loadandgo.de/services/small-large-moves"
+                  canonical="https://load-go-transport.com/services/small-large-moves"
                   keywords="kleine Umzüge, große Umzüge, Privatumzug, Geschäftsumzug, Load & Go"
                 />
                 <ServiceA />
@@ -90,7 +94,7 @@ function App() {
                 <SEO
                   title="Professioneller Verpackungsservice - Load & Go"
                   description="Sicherer Verpackungsservice von Load & Go. Professionelles Verpacken Ihrer Gegenstände für den Transport."
-                  canonical="https://loadandgo.de/services/packing-service"
+                  canonical="https://load-go-transport.com/services/packing-service"
                   keywords="Verpackungsservice, professionelles Verpacken, Umzugsverpackung, Load & Go"
                 />
                 <ServiceB />
@@ -105,7 +109,7 @@ function App() {
                 <SEO
                   title="Möbeltransport & Aufbau - Load & Go Service"
                   description="Professioneller Möbeltransport und Aufbauservice von Load & Go. Sicherer Transport und fachgerechter Aufbau Ihrer Möbel."
-                  canonical="https://loadandgo.de/services/furniture-ad"
+                  canonical="https://load-go-transport.com/services/furniture-ad"
                   keywords="Möbeltransport, Möbelaufbau, Möbelservice, Load & Go Transport"
                 />
                 <ServiceC />
@@ -120,7 +124,7 @@ function App() {
                 <SEO
                   title="Express Umzüge - Schneller Umzugsservice Load & Go"
                   description="Express Umzüge von Load & Go. Schneller und zuverlässiger Umzugsservice für eilige Termine in Deutschland."
-                  canonical="https://loadandgo.de/services/express-moves"
+                  canonical="https://load-go-transport.com/services/express-moves"
                   keywords="Express Umzug, schneller Umzug, Eilumzug, Load & Go Express"
                 />
                 <ServiceD />
@@ -135,7 +139,7 @@ function App() {
                 <SEO
                   title="Möbelentsorgung Service - Load & Go"
                   description="Professionelle Möbelentsorgung von Load & Go. Umweltfreundliche Entsorgung Ihrer alten Möbel und Gegenstände."
-                  canonical="https://loadandgo.de/services/furniture-disposal"
+                  canonical="https://load-go-transport.com/services/furniture-disposal"
                   keywords="Möbelentsorgung, Entrümpelung, Entsorgungsservice, Load & Go"
                 />
                 <ServiceE />
@@ -150,7 +154,7 @@ function App() {
                 <SEO
                   title="Persönlicher Kontakt - Load & Go Beratung"
                   description="Persönliche Beratung und Kontakt bei Load & Go. Individuelle Umzugslösungen für Ihre Bedürfnisse."
-                  canonical="https://loadandgo.de/services/personal-contact"
+                  canonical="https://load-go-transport.com/services/personal-contact"
                   keywords="persönliche Beratung, Umzugsberatung, Kontakt Load & Go"
                 />
                 <ServiceF />
@@ -165,7 +169,7 @@ function App() {
                 <SEO
                   title="Reinigungsservice - Load & Go Umzugsreinigung"
                   description="Professioneller Reinigungsservice von Load & Go. Umzugsreinigung für alte und neue Wohnung."
-                  canonical="https://loadandgo.de/services/cleaning-service"
+                  canonical="https://load-go-transport.com/services/cleaning-service"
                   keywords="Reinigungsservice, Umzugsreinigung, Endreinigung, Load & Go"
                 />
                 <ServiceG />
@@ -180,7 +184,7 @@ function App() {
                 <SEO
                   title="Geschäftsbedingungen - Load & Go"
                   description="Allgemeine Geschäftsbedingungen von Load & Go Umzugsservice."
-                  canonical="https://loadandgo.de/rulesA"
+                  canonical="https://load-go-transport.com/rulesA"
                   robots="noindex, follow"
                 />
                 <RuleA />
@@ -195,7 +199,7 @@ function App() {
                 <SEO
                   title="Datenschutz - Load & Go"
                   description="Datenschutzerklärung von Load & Go Umzugsservice."
-                  canonical="https://loadandgo.de/rulesB"
+                  canonical="https://load-go-transport.com/rulesB"
                   robots="noindex, follow"
                 />
                 <RuleB />
@@ -210,7 +214,7 @@ function App() {
                 <SEO
                   title="Impressum - Load & Go"
                   description="Impressum von Load & Go Umzugsservice."
-                  canonical="https://loadandgo.de/rulesC"
+                  canonical="https://load-go-transport.com/rulesC"
                   robots="noindex, follow"
                 />
                 <RuleC />
