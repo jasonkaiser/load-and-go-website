@@ -1,22 +1,22 @@
+// vite.config.js
 import { defineConfig } from 'vite'
-import path from "path"
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
 import legacy from '@vitejs/plugin-legacy'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
     legacy({
-      // ensures older JS syntax for react-snap compatibility
       targets: ['defaults', 'not IE 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     }),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
